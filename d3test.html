@@ -12,12 +12,17 @@
 
     <script>
 
-      d3.csv('https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv',
-        d3.autoType, data => {
-          return console.log(data)
-        });
+      // let data = d3.csv('https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv');
           
-        
+      // console.log(data);
+
+      let data = d3.csv('https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv',
+          d3.autoType)
+      debugger
+      console.log(data)
+          // .then(function (data) {
+          //   console.log(data)
+          // });
       // console.log(data);
 
       // let data = [40, 70, 60, 20, 40, 100, 60, 85, 100, 10, 24, 59, 119];
