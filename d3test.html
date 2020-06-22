@@ -3,115 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learing D3!!!</title>
-
+  <title>Learning D3!!!</title>
+  <!--  D3 imported library -->
   <script src="https://d3js.org/d3.v4.js" charset="utf-8"></script>
 </head>
   <body>
-
-
-    <script>
-
-      // let data = d3.csv('https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv');
-          
-      // console.log(data);
-
-      let data = d3.csv('https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv',
-          d3.autoType)
-      debugger
-      console.log(data)
-          // .then(function (data) {
-          //   console.log(data)
-          // });
-      // console.log(data);
-
-      // let data = [40, 70, 60, 20, 40, 100, 60, 85, 100, 10, 24, 59, 119];
-
-      // let data = [],
-
-      // d3.csv("rat-data.csv", d => {
-      //   return {
-      //     rats: d.rats,
-      //     city: d.city
-      //   }
-      // }, function(errors, rows) {
-      //   data = rows;
-      //   console.log(data)
-      //   createVisualization();
-      // });
-
-      // const h = 175;
-      // const w = 150;
-
-
-
-      // const arrayLength = data.length; // length of dataset
-      // const maxValue = d3.max(data, function (d) { return +d; }); // get max value of our dataset
-      // const xAxisLength = 100; // length of x-axis in our layout
-      // const yAxisLength = 100; // length of y-axis in our layout
-
-      // let yScale = d3.scaleLinear()
-      //   .domain([0, maxValue])
-      //   .range([0, yAxisLength]);
-      // // we use d3 library method to select our body and append a new tag with 
-      //   // height and width attrs
-      // let svg = d3.select("body")
-      //   .append("svg")
-      //     .attr("height", h)
-      //     .attr("width", w);
-          
-      // // to create elements we have to state the name of the element we are working from 
-      //   // first, what data we bind to it, and use #enter to apply all following methods
-      //     // through JS currying
-      // svg.selectAll("rect")
-      //   .data(data)
-      //   .enter()
-      //   .append("rect")
-      //   .attr("x", (d, i) => {
-      //     return i * (xAxisLength / arrayLength) +30
-      //   })
-      //   .attr("y", d => {
-      //     return h - yScale(d) 
-      //   })
-      //   .attr("width", (xAxisLength / arrayLength) -1)
-      //   .attr("height", d => {
-      //     return yScale(d)
-      //   })
-      //   .attr("fill", "blue")
-
-      //   // Create y-axis
-      //     svg.append("line")
-      //       .attr("x1", 30)
-      //       .attr("y1", 75)
-      //       .attr("x2", 30)
-      //       .attr("y2", 175)
-      //       .attr("stroke-width", 2)
-      //       .attr("stroke", "black");
-
-      //     // Create x-axis
-      //     svg.append("line")
-      //       .attr("x1", 30)
-      //       .attr("y1", 175)
-      //       .attr("x2", 130)
-      //       .attr("y2", 175)
-      //       .attr("stroke-width", 2)
-      //       .attr("stroke", "black");
-
-      //   svg.append("text")
-      //       .attr("class", "y label")
-      //       .attr("text-anchor", "end")
-      //       .text("No. of Rats")
-      //       .attr("transform", "translate(20, 20) rotate(-90)");
-
-
-    </script>
-
     <style>
-      text {
-        font-family: "Open Sans", sans-serif;
-        font-size: 12px;
+      svg {
+        background-color: lightgrey;
       }
     </style>
+
+    <main class="viewbox"></main>
+    
+    <script>
+      
+    </script>
+
+    <script src="d3code.js"></script>
 
   </body>
 </html>
