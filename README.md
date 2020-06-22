@@ -12,7 +12,10 @@ Covid Interactive Bubble Chart or (CIBC) is a feature rich data visualization th
 2. Have SVG elements exibit a force push/push animation.
 5. Create interactive options that allow user to change visuals for visualizing different statistics per country.
 4. Enable separation of SVG elements to isolate data
-3. More to follow...
+
+### BONUS
+1. Have filters that allow you to see from a global view to state view and vice versa
+2. Clickable bubbles that enable you to isolate an element and see all data associated with the country/state inside
 
 
 ### Wireframe

@@ -1,3 +1,11 @@
+// To have options for filters on our vis we can have conditional classNames/outputs that 
+// depend on variables that can act as flags for each attr below.
+    // E.G:  
+      // let flag = filter1
+    // .attr(if (flag === filter1) return $$)
+
+// IDEA; have a filter for recovery cases per capita in each state
+
 const svg_width = 800;
 const svg_height = 600;
 
@@ -17,7 +25,13 @@ d3.queue() // allows us to be able to set gaps in time of execution(TOE)
 
   // note; d3's force sim works in ticks, meaning nodes don't just
     // "snap" into place
-let sim = d3.forceSimulation();
+let sim = d3.forceSimulation()
+  .force("x", d3.forceX(svg_width / 2).strength(0.025))
+  .force("y", d3.forceY(svg_height / 2).strength(0.025))
+  .force("collide", d3.forceCollide(d => {
+    return radiusScale(d.recovered)
+  }))
+          
 
 function ready (error, datapoints) {
   // datapoints are each object parsed by 
@@ -26,10 +40,12 @@ function ready (error, datapoints) {
     .enter()
     .append("circle")
     .attr("class", "state")
-    .attr("r", 10)
-    .attr("fill", "green")
-    .attr("cx", 100)
+    .attr("r", 10) // our radius of our circles
+    .attr("fill", "lightgreen")
+    // .attr("border", "black").attr("border-width", 2)
+    .attr("cx", 100) // svg attribute for x-axis center point
     .attr("cy", 300)
+    // references above https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/cx
 
     // perhaps the coolest thing ever! The d3.forceSimulation().nodes
       // creates points of origination(nodes) that create force against other elements(nodes)
