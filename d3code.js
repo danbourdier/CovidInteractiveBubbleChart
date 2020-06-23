@@ -31,21 +31,22 @@ let sim = d3.forceSimulation()
   .force("x", d3.forceX(svg_width / 2).strength(0.05))
   .force("y", d3.forceY(svg_height / 2).strength(0.05))
     // the collide measurement on line 35 & line 46 must match so that the force between  
-      // center points of differing circles can be equal to each circles radius (if collision was smaller then circles
+      // center points of differing bubbles can be equal to each circles radius (if collision was smaller then circles
         // would overlap)
   .force("collide", d3.forceCollide(d => ( (Math.sqrt(d.Recovered) / 4 + 10) )) )
+  // had to use sqrt to drastically shrink values over 10000 to proportion
           
 
 function ready (error, datapoints) {
   // datapoints are each object parsed by 
-  let circles = svg.selectAll(".state")
+  let bubbles = svg.selectAll(".state")
     .data(datapoints)
     .enter()
     .append("circle")
     .attr("class", "state")
     .attr("r", d => (
       (Math.sqrt(d.Recovered) / 4 + 10)
-    )) // our radius of our circles
+    )) // our radius of our bubbles
     .attr("fill", "purple")
     // .attr("border", "black").attr("border-width", 2)
     .attr("cx", 100) // svg attribute for x-axis center point
@@ -63,7 +64,7 @@ function ready (error, datapoints) {
       .on('tick', ticked)
 
   function ticked() {
-    circles
+    bubbles
       .attr("cx", d => {
         return d.x
       })

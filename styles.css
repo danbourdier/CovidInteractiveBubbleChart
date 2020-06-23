@@ -2,3 +2,14 @@
   fill: green;
 
 }
+
+.viewbox-container {
+      display: flex;
+      flex-direction: row;
+}
+
+svg {
+  background-color: lightgrey;
+  position: relative;
+  left: 280px;
+}
