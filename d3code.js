@@ -46,7 +46,7 @@ function ready (error, datapoints) {
     .attr("r", d => (
       (Math.sqrt(d.Recovered) / 4 + 10)
     )) // our radius of our circles
-    .attr("fill", "red")
+    .attr("fill", "purple")
     // .attr("border", "black").attr("border-width", 2)
     .attr("cx", 100) // svg attribute for x-axis center point
     .attr("cy", 300)
