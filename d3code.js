@@ -5,6 +5,12 @@
     // .attr(if (flag === filter1) return $$)
 
 // IDEA; have a filter for recovery cases per capita in each state
+const COLORS = ["lightsalmon", "red", "lightcoral", "orangered", "gold", 
+  "darkorange", "khaki", "yellow", "lawngreen", "limegreen", "greenyellow",
+   "mediumseagreen", "cyan", "aquamarine", "mediumturquoise", "deepskyblue",
+    "dodgerblue", "blue", "navy", "mediumslateblue", "fuchsia", "indigo", "ivory",
+     "lavenderblush", "brown", "tan", "slategray", "hotpink", "mediumspringgreen",
+      "seagreen"]
 
 const svg_width = 800;
 const svg_height = 600;
@@ -14,7 +20,8 @@ let svg = d3.select(".viewbox")
   .attr("height", svg_height)
   .attr("width", svg_width)
   .append("g")
-  .attr("transform", "translate(0,0)")
+  .attr("transform", "translate(0,0)") // same as margins; just centers our viewbox
+
 
 // we use the below #queue when we have multiple files for use
 d3.queue() // allows us to be able to set gaps in time of execution(TOE)
@@ -24,11 +31,12 @@ d3.queue() // allows us to be able to set gaps in time of execution(TOE)
   .await(ready) // function that executes (below) upon load
 
   // note; d3's force sim works in ticks, meaning nodes don't just
+let forceX = d3.forceX(svg_width / 2).strength(0.05)
     // "snap" into place
 let sim = d3.forceSimulation()
   // it doesnt matter what we name x and y below because they are just 
     // placeholders
-  .force("x", d3.forceX(svg_width / 2).strength(0.05))
+  .force("x", forceX)
   .force("y", d3.forceY(svg_height / 2).strength(0.05))
     // the collide measurement on line 35 & line 46 must match so that the force between  
       // center points of differing bubbles can be equal to each circles radius (if collision was smaller then circles
@@ -47,7 +55,9 @@ function ready (error, datapoints) {
     .attr("r", d => (
       (Math.sqrt(d.Recovered) / 4 + 10)
     )) // our radius of our bubbles
-    .attr("fill", "purple")
+    .attr("fill", () => {
+      return COLORS[Math.floor(Math.random() * COLORS.length - 1) + 1  ]
+    })
     // .attr("border", "black").attr("border-width", 2)
     .attr("cx", 100) // svg attribute for x-axis center point
     .attr("cy", 300)
@@ -72,5 +82,14 @@ function ready (error, datapoints) {
         return d.y
       })
   }
+
+  d3.select(".button-left-first")
+    .on("click", () => {
+      return console.log("button click1 successful")
+    })
+  d3.select(".button-left-second")
+    .on("click", () => {
+      return console.log("button click2 successful")
+    })
 }
 
