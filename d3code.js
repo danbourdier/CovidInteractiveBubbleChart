@@ -26,11 +26,14 @@ d3.queue() // allows us to be able to set gaps in time of execution(TOE)
   // note; d3's force sim works in ticks, meaning nodes don't just
     // "snap" into place
 let sim = d3.forceSimulation()
-  .force("x", d3.forceX(svg_width / 2).strength(0.025))
-  .force("y", d3.forceY(svg_height / 2).strength(0.025))
-  .force("collide", d3.forceCollide(d => {
-    return radiusScale(d.recovered)
-  }))
+  // it doesnt matter what we name x and y below because they are just 
+    // placeholders
+  .force("x", d3.forceX(svg_width / 2).strength(0.05))
+  .force("y", d3.forceY(svg_height / 2).strength(0.05))
+    // the collide measurement on line 35 & line 46 must match so that the force between  
+      // center points of differing circles can be equal to each circles radius (if collision was smaller then circles
+        // would overlap)
+  .force("collide", d3.forceCollide(d => ( (Math.sqrt(d.Recovered) / 4 + 10) )) )
           
 
 function ready (error, datapoints) {
@@ -40,11 +43,16 @@ function ready (error, datapoints) {
     .enter()
     .append("circle")
     .attr("class", "state")
-    .attr("r", 10) // our radius of our circles
-    .attr("fill", "lightgreen")
+    .attr("r", d => (
+      (Math.sqrt(d.Recovered) / 4 + 10)
+    )) // our radius of our circles
+    .attr("fill", "red")
     // .attr("border", "black").attr("border-width", 2)
     .attr("cx", 100) // svg attribute for x-axis center point
     .attr("cy", 300)
+    .on('focus', d => (
+      console.log(d)
+    ))
     // references above https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/cx
 
     // perhaps the coolest thing ever! The d3.forceSimulation().nodes
