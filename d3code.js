@@ -12,7 +12,7 @@ const COLORS = ["lightsalmon", "red", "lightcoral", "orangered", "gold",
      "lavenderblush", "brown", "tan", "slategray", "hotpink", "mediumspringgreen",
       "seagreen"]
 
-const svg_width = 800;
+const svg_width = 950;
 const svg_height = 600;
 
 let svg = d3.select(".viewbox")
@@ -31,8 +31,18 @@ d3.queue() // allows us to be able to set gaps in time of execution(TOE)
   .await(ready) // function that executes (below) upon load
 
   // note; d3's force sim works in ticks, meaning nodes don't just
-let forceX = d3.forceX(svg_width / 2).strength(0.05)
     // "snap" into place
+
+// let forceX = d3.forceX(svg_width / 2).strength(0.05)
+let forceX = d3.forceX(d => {
+  if (d.Lat > 30) {
+    return 250
+  } else {
+    return 750
+  }
+}).strength(0.05);
+
+    
 let sim = d3.forceSimulation()
   // it doesnt matter what we name x and y below because they are just 
     // placeholders
@@ -41,7 +51,7 @@ let sim = d3.forceSimulation()
     // the collide measurement on line 35 & line 46 must match so that the force between  
       // center points of differing bubbles can be equal to each circles radius (if collision was smaller then circles
         // would overlap)
-  .force("collide", d3.forceCollide(d => ( (Math.sqrt(d.Recovered) / 4 + 10) )) )
+  .force("collide", d3.forceCollide(d => ( (Math.sqrt(d.Recovered) / 6 + 10) )) )
   // had to use sqrt to drastically shrink values over 10000 to proportion
           
 
@@ -53,7 +63,7 @@ function ready (error, datapoints) {
     .append("circle")
     .attr("class", "state")
     .attr("r", d => (
-      (Math.sqrt(d.Recovered) / 4 + 10)
+      (Math.sqrt(d.Recovered) / 6 + 10)
     )) // our radius of our bubbles
     .attr("fill", () => {
       return COLORS[Math.floor(Math.random() * COLORS.length - 1) + 1  ]
@@ -83,10 +93,13 @@ function ready (error, datapoints) {
       })
   }
 
-  d3.select(".button-left-first")
-    .on("click", () => {
-      return console.log("button click1 successful")
-    })
+  // our buttons to override the forcesim factors
+  d3.select(".button-reset")
+    .on("click", () => (
+      sim
+        .force("x", d3.forceX(svg_width / 2).strength(1))
+    ) );
+
   d3.select(".button-left-second")
     .on("click", () => {
       return console.log("button click2 successful")
