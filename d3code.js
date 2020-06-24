@@ -11,6 +11,7 @@ const COLORS = ["lightsalmon", "red", "lightcoral", "orangered", "gold",
     "dodgerblue", "blue", "navy", "mediumslateblue", "fuchsia", "indigo", "ivory",
      "lavenderblush", "brown", "tan", "slategray", "hotpink", "mediumspringgreen",
       "seagreen"]
+const clusterPadding = 6;
 
 const svg_width = 950;
 const svg_height = 600;
@@ -34,26 +35,46 @@ d3.queue() // allows us to be able to set gaps in time of execution(TOE)
     // "snap" into place
 
 // let forceX = d3.forceX(svg_width / 2).strength(0.05)
-let forceX = d3.forceX(d => {
+
+let forceStrength = 0.5;
+
+////////////////////////////////////////////////////////////////////////////////
+let forceXCombine = d3.forceX(svg_width / 2).strength(forceStrength);
+
+let forceXSplit= d3.forceX(d => {
   if (d.Lat > 30) {
     return 250
-  } else {
+  } else if (d.Lat < 30) {
     return 750
   }
-}).strength(0.05);
 
-    
+}).strength(forceStrength);
+
+////////////////////////////////////////////////////////////////////////////////
+
+const charge = d => {
+  return -Math.pow(d.Recovered, 0.739) * forceStrength
+  // return d.Recovered
+}
+
 let sim = d3.forceSimulation()
   // it doesnt matter what we name x and y below because they are just 
     // placeholders
-  .force("x", forceX)
-  .force("y", d3.forceY(svg_height / 2).strength(0.05))
+
+  .force("x", forceXCombine)
+  .force("y", d3.forceY(svg_height / 2).strength(forceStrength))
     // the collide measurement on line 35 & line 46 must match so that the force between  
       // center points of differing bubbles can be equal to each circles radius (if collision was smaller then circles
         // would overlap)
-  .force("collide", d3.forceCollide(d => ( (Math.sqrt(d.Recovered) / 6 + 10) )) )
+
+  // .force("collide", d3.forceCollide(d => ( Math.floor(Math.sqrt(d.Recovered) / 6 + 10) )) )
+
+  .force('charge', d3.forceManyBody().strength(charge))
+
+  
   // had to use sqrt to drastically shrink values over 10000 to proportion
           
+////////////////////////////////////////////////////////////////////////////////
 
 function ready (error, datapoints) {
   // datapoints are each object parsed by 
@@ -63,7 +84,7 @@ function ready (error, datapoints) {
     .append("circle")
     .attr("class", "state")
     .attr("r", d => (
-      (Math.sqrt(d.Recovered) / 6 + 10)
+      Math.floor(Math.sqrt(d.Recovered) / 6 + 10)
     )) // our radius of our bubbles
     .attr("fill", () => {
       return COLORS[Math.floor(Math.random() * COLORS.length - 1) + 1  ]
@@ -72,7 +93,9 @@ function ready (error, datapoints) {
     .attr("cx", 100) // svg attribute for x-axis center point
     .attr("cy", 300)
     .on('focus', d => (
+      // sim.force("x", d3.forceX(250)).strength(0.5)
       console.log(d)
+        
     ))
     // references above https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/cx
 
@@ -82,6 +105,7 @@ function ready (error, datapoints) {
       // reference:: https://github.com/d3/d3-force  <--- DENSEEEEE
     sim.nodes(datapoints)
       .on('tick', ticked)
+
 
   function ticked() {
     bubbles
@@ -97,12 +121,20 @@ function ready (error, datapoints) {
   d3.select(".button-reset")
     .on("click", () => (
       sim
-        .force("x", d3.forceX(svg_width / 2).strength(1))
+        .force("x", forceXCombine)
+        .alphaTarget(0.20)
+        // https://stackoverflow.com/questions/46426072/what-is-the-difference-between-alphatarget-and-alphamin
+        .restart()
     ) );
 
-  d3.select(".button-left-second")
-    .on("click", () => {
-      return console.log("button click2 successful")
-    })
+  d3.select(".button-split")
+    .on("click", () => (
+      sim
+        .force("x", forceXSplit)
+        .alphaTarget(0.20)
+        .restart()
+    ));
 }
+
+// /////////////////////////////////////////////////////////////////////////////
 
