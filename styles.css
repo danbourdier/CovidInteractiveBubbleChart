@@ -12,4 +12,46 @@ svg {
   background-color: lightgrey;
   position: relative;
   /* left: 280px; */
+  margin-left: auto;
+  margin-right: auto;
+  width:950px;
+  height: 600px;
+  padding: 60px 35px 35px 35px;
+  border-radius: 40px;
+  background: #ecf0f3;
+  box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+}
+
+                /* header */
+header {
+  display: flex;
+  width: 1405px;
+  height: 65px;
+  background-color: #ecf0f3;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+
+  margin-bottom: 10px;
+  /* z-index: 2; */
+  /* position: relative; */
+  /* border-radius: 40px; */
+  background: #ecf0f3;
+  /* box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff; */
+}
+header div {
+  margin: auto 0px auto 0px;
+}
+
+body {
+  background-color: #ecf0f3;
+}
+
+.left-buttons {
+  margin-left: auto;
+
+}
+.right-buttons {
+  margin-right: auto;
+
 }
