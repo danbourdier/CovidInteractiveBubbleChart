@@ -18,8 +18,8 @@ svg {
   height: 600px;
   padding: 60px 35px 35px 35px;
   border-radius: 40px;
-  background: #ecf0f3;
-  box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+  background: #E0E5EC;
+  box-shadow: 4px 4px 5px 0px inset #A3B1C6, -3px -3px 5px 0px inset #FFFFFF
 }
 
                 /* header */
@@ -27,7 +27,6 @@ header {
   display: flex;
   width: 1405px;
   height: 65px;
-  background-color: #ecf0f3;
   justify-content: space-between;
   margin-left: auto;
   margin-right: auto;
@@ -36,7 +35,7 @@ header {
   /* z-index: 2; */
   /* position: relative; */
   /* border-radius: 40px; */
-  background: #ecf0f3;
+  background: #E0E5EC;
   /* box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff; */
 }
 header div {
@@ -44,7 +43,7 @@ header div {
 }
 
 body {
-  background-color: #ecf0f3;
+  background-color: #E0E5EC;
 }
 
 .left-buttons {
@@ -54,4 +53,11 @@ body {
 .right-buttons {
   margin-right: auto;
 
+}
+
+.state {
+  /* fill: #94d31b;  */
+  /* -webkit-filter: drop-shadow(0 1px 2px); */
+  /* filter: url(#drop-shadow); */
+  /* filter: blur(200px); */
 }

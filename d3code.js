@@ -11,7 +11,7 @@ const COLORS = ["lightsalmon", "red", "lightcoral", "orangered", "gold",
     "dodgerblue", "blue", "navy", "mediumslateblue", "fuchsia", "indigo", "ivory",
      "lavenderblush", "brown", "tan", "slategray", "hotpink", "mediumspringgreen",
       "seagreen"]
-const clusterPadding = 6;
+
 
 const svg_width = 950;
 const svg_height = 600;
@@ -23,6 +23,60 @@ let svg = d3.select(".viewbox")
   .append("g")
   .attr("transform", "translate(0,0)") // same as margins; just centers our viewbox
 
+////////////////////////////////////////////
+// let defs = svg.append("defs")
+
+  //   <feComposite in2="offsetblur" operator="in" />
+  //   <feMerge>
+  //     <feMergeNode />
+  //     <feMergeNode in="SourceGraphic" />
+  //   </feMerge>
+  // </filter >
+
+// defs.append("filter")
+//   .attr("id", "drop-shadow")
+//   .append("feGaussianBlur")
+//     .attr("id", "in")
+//     .attr("stdDeviation", 0.5)
+    // .append("feOffset")
+    //   .attr("dx", 1)
+    //   .attr("dy", 4)
+      // .attr("result", "offsetblur")
+      // .append("feFlood")
+      //   .attr("flood-color", "white")
+        // .append("feComposite")
+        //   .attr("in2", "offsetblur")
+        //   .attr("operator", "in")
+          // .append("feMerge")
+          //   .append("feMergeNode")
+          //   .append("feMergeNode")
+              // .attr("in", "SourceGraphic")
+
+// var dropShadowFilter = defs.append('svg:filter')
+//   .attr('id', 'drop-shadow')
+//   .attr('filterUnits', "userSpaceOnUse")
+//   .attr('width', '250%')
+//   .attr('height', '250%');
+// dropShadowFilter.append('svg:feGaussianBlur')
+//   .attr('in', 'SourceGraphic')
+//   .attr('stdDeviation', 2)
+//   .attr('result', 'blur-out');
+// dropShadowFilter.append('svg:feColorMatrix')
+//   .attr('in', 'blur-out')
+//   .attr('type', 'hueRotate')
+//   .attr('values', 180)
+//   .attr('result', 'color-out');
+// dropShadowFilter.append('svg:feOffset')
+//   .attr('in', 'color-out')
+//   .attr('dx', 3)
+//   .attr('dy', 3)
+//   .attr('result', 'the-shadow');
+// dropShadowFilter.append('svg:feBlend')
+//   .attr('in', 'SourceGraphic')
+//   .attr('in2', 'the-shadow')
+//   .attr('mode', 'normal');
+// ABOVE CODE REFERENCED FROM http://bl.ocks.org/wimdows/1502762
+////////////////////////////////////////////////
 
 // we use the below #queue when we have multiple files for use
 d3.queue() // allows us to be able to set gaps in time of execution(TOE)
@@ -31,8 +85,9 @@ d3.queue() // allows us to be able to set gaps in time of execution(TOE)
       // #defer is loaded.
   .await(ready) // function that executes (below) upon load
 
-  // note; d3's force sim works in ticks, meaning nodes don't just
-    // "snap" into place
+
+
+  
 
 // let forceX = d3.forceX(svg_width / 2).strength(0.05)
 
@@ -56,7 +111,10 @@ const charge = d => {
   return -Math.pow(d.Recovered, 0.739) * forceStrength
   // return d.Recovered
 }
+// above code reference from D3's sample code for applying charge
 
+// note; d3's force sim works in ticks, meaning nodes don't just
+  // "snap" into place
 let sim = d3.forceSimulation()
   // it doesnt matter what we name x and y below because they are just 
     // placeholders
@@ -78,9 +136,12 @@ let sim = d3.forceSimulation()
 
 function ready (error, datapoints) {
   // datapoints are each object parsed by 
+  let g = svg.selectAll("g")
+    .append("g")
   let bubbles = svg.selectAll(".state")
     .data(datapoints)
     .enter()
+    
     .append("circle")
     .attr("class", "state")
     .attr("r", d => (
@@ -92,11 +153,15 @@ function ready (error, datapoints) {
     // .attr("border", "black").attr("border-width", 2)
     .attr("cx", 100) // svg attribute for x-axis center point
     .attr("cy", 300)
+    
     .on('focus', d => (
       // sim.force("x", d3.forceX(250)).strength(0.5)
       console.log(d)
-        
     ))
+
+    g.append("text")
+      .attr("dx", d => (-20))
+      .text(d => (d.Province_State))
     // references above https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/cx
 
     // perhaps the coolest thing ever! The d3.forceSimulation().nodes
