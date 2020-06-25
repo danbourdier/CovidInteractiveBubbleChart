@@ -13,6 +13,7 @@ const COLORS = ["lightsalmon", "red", "lightcoral", "orangered", "gold",
       "seagreen"]
 
 
+
 const svg_width = 950;
 const svg_height = 600;
 
@@ -20,8 +21,9 @@ let svg = d3.select(".viewbox")
   .append("svg")
   .attr("height", svg_height)
   .attr("width", svg_width)
-  .append("g")
-  .attr("transform", "translate(0,0)") // same as margins; just centers our viewbox
+  // .append("g")
+  // .attr("transform", "translate(0,0)") // same as margins; just centers our viewbox
+  // .attr("text-anchor", "middle")
 
 ////////////////////////////////////////////
 // let defs = svg.append("defs")
@@ -52,29 +54,6 @@ let svg = d3.select(".viewbox")
           //   .append("feMergeNode")
               // .attr("in", "SourceGraphic")
 
-// var dropShadowFilter = defs.append('svg:filter')
-//   .attr('id', 'drop-shadow')
-//   .attr('filterUnits', "userSpaceOnUse")
-//   .attr('width', '250%')
-//   .attr('height', '250%');
-// dropShadowFilter.append('svg:feGaussianBlur')
-//   .attr('in', 'SourceGraphic')
-//   .attr('stdDeviation', 2)
-//   .attr('result', 'blur-out');
-// dropShadowFilter.append('svg:feColorMatrix')
-//   .attr('in', 'blur-out')
-//   .attr('type', 'hueRotate')
-//   .attr('values', 180)
-//   .attr('result', 'color-out');
-// dropShadowFilter.append('svg:feOffset')
-//   .attr('in', 'color-out')
-//   .attr('dx', 3)
-//   .attr('dy', 3)
-//   .attr('result', 'the-shadow');
-// dropShadowFilter.append('svg:feBlend')
-//   .attr('in', 'SourceGraphic')
-//   .attr('in2', 'the-shadow')
-//   .attr('mode', 'normal');
 // ABOVE CODE REFERENCED FROM http://bl.ocks.org/wimdows/1502762
 ////////////////////////////////////////////////
 
@@ -126,8 +105,8 @@ let sim = d3.forceSimulation()
         // would overlap)
 
   // .force("collide", d3.forceCollide(d => ( Math.floor(Math.sqrt(d.Recovered) / 6 + 10) )) )
-
   .force('charge', d3.forceManyBody().strength(charge))
+  // the above code works better than the one above it!!! REPULSION FTW!!!
 
   
   // had to use sqrt to drastically shrink values over 10000 to proportion
@@ -137,50 +116,102 @@ let sim = d3.forceSimulation()
 function ready (error, datapoints) {
   // datapoints are each object parsed by 
   let g = svg.selectAll("g")
-    .append("g")
-  let bubbles = svg.selectAll(".state")
-    .data(datapoints)
-    .enter()
-    
-    .append("circle")
-    .attr("class", "state")
-    .attr("r", d => (
-      Math.floor(Math.sqrt(d.Recovered) / 6 + 10)
-    )) // our radius of our bubbles
-    .attr("fill", () => {
-      return COLORS[Math.floor(Math.random() * COLORS.length - 1) + 1  ]
-    })
-    // .attr("border", "black").attr("border-width", 2)
-    .attr("cx", 100) // svg attribute for x-axis center point
-    .attr("cy", 300)
-    
-    .on('focus', d => (
-      // sim.force("x", d3.forceX(250)).strength(0.5)
-      console.log(d)
-    ))
+  .data(datapoints)
+  .enter()
+  .append("g")
+  // .attr("transform", function (d) { return "translate(" + d.x + ",80)" })
+  // .append("text")
+  .attr("r", d => (
+    Math.floor(Math.sqrt(d.Recovered) / 6 + 10)
+  ))
+  .attr("transform", "translate(0,0)")
+  // .text(d => (d.Province_State))
 
-    g.append("text")
-      .attr("dx", d => (-20))
-      .text(d => (d.Province_State))
+  let bubbles = svg.selectAll("g")
+      .append("circle")
+      .attr("class", "state")
+      .attr("r", d => (
+        Math.floor(Math.sqrt(d.Recovered) / 6 + 10)
+      )) // our radius of our bubbles
+      .attr("fill", () => {
+        return COLORS[Math.floor(Math.random() * COLORS.length - 1) + 1  ]
+      })
+      .attr("cx", () => {
+        cxvar = 500
+        return cxvar
+      })
+    .attr("cy", () => {
+      cyvar = 500
+      return cyvar
+    })
+
+    // .attr("class", "bubble-text")
+    // .text(function (d) { return d.Province_State; })
+    // .attr("x", function (d) { return d.x; })
+    // .attr("y", function (d) { return d.y; })
+    // .attr("visibility", "visible")
+    // .attr("font-size", 100)
+    // .attr("color", "white")
+
     // references above https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/cx
 
     // perhaps the coolest thing ever! The d3.forceSimulation().nodes
       // creates points of origination(nodes) that create force against other elements(nodes)
       // reference:: https://medium.com/@bryony_17728/d3-js-two-v-4-network-charts-compared-8d3c66b0499c
       // reference:: https://github.com/d3/d3-force  <--- DENSEEEEE
-    sim.nodes(datapoints)
-      .on('tick', ticked)
+  sim.nodes(datapoints)
+    .on('tick', ticked)
 
+
+let cxvart;
+let cyvart;
+  
+// let circles = svg.selectAll()
+
+let words = svg.selectAll("g");
+  words.append("text")
+    .text(d => d.Province_State)
+    .attr("transform", d => `translate(${d.x + 1},${d.y + 1})`);
+
+let texts = svg.selectAll("text")
+
+// texts._groups[0].forEach(txt => (svg.select(this)
+    //   .attr("x", cxvart)
+    //   .attr("y", cyvart)) )
 
   function ticked() {
+
     bubbles
       .attr("cx", d => {
+        cxvart = d.x;
         return d.x
       })
       .attr("cy", d => {
+        cyvart = d.y;
         return d.y
-      })
+      });
+
+      texts
+        .attr("x", d => {
+          cxvart = d.x;
+          return d.x
+        })
+        .attr("y", d => {
+          cyvart = d.y;
+          return d.y
+        })
+        .attr()
+    // texts._groups[0].forEach(txt => (svg.select(this)
+    //   .attr("x", cxvart)
+    //   .attr("y", cyvart)) )
   }
+  // console.log(texts._groups[0][0])
+  
+  // we need to iterate thru each text tag inside of EACH circle and alter respective yayayaya
+
+
+
+
 
   // our buttons to override the forcesim factors
   d3.select(".button-reset")
@@ -201,5 +232,16 @@ function ready (error, datapoints) {
     ));
 }
 
-// /////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
+
+//                       AHA MOMENTS
+// 1. I spent all day debugging why small circles werent separated according to my conditional
+  // its because i couldn't appropiately identify what each circle represented because
+    // of the logic that sizes them defaults values < 200 to be equal to a relatively same 
+      // size as opposed to other circles that had values of 70,000 (we need to add a scale!!!)
+
+// 2. Force charge over force collission because collision acts as barriers preventing
+  // free flowing bubbles! Where as charge acts as a repulsion when set to a negative value!!!
+
+// 3. My ticked method and setting the individual text's positioning
