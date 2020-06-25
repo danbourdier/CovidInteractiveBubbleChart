@@ -144,14 +144,10 @@ function ready (error, datapoints) {
       cyvar = 500
       return cyvar
     })
+    .on("focus", d => (
+      console.log(d)
+    ))
 
-    // .attr("class", "bubble-text")
-    // .text(function (d) { return d.Province_State; })
-    // .attr("x", function (d) { return d.x; })
-    // .attr("y", function (d) { return d.y; })
-    // .attr("visibility", "visible")
-    // .attr("font-size", 100)
-    // .attr("color", "white")
 
     // references above https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/cx
 
@@ -171,7 +167,7 @@ let cyvart;
 let words = svg.selectAll("g");
   words.append("text")
     .text(d => d.Province_State)
-    .attr("transform", d => `translate(${d.x + 1},${d.y + 1})`);
+    // .attr("transform", d => `translate(${d.x + 1},${d.y + 1})`);
 
 let texts = svg.selectAll("text")
 
@@ -193,14 +189,16 @@ let texts = svg.selectAll("text")
 
       texts
         .attr("x", d => {
-          cxvart = d.x;
-          return d.x
+
+          return d.x 
         })
         .attr("y", d => {
-          cyvart = d.y;
+          // console.log(d.Province_State.length / 2)
           return d.y
         })
-        .attr()
+        .style("font-size", d => (
+          Math.floor(Math.sqrt(d.Recovered) / 6 + 10) / 3.14
+        ))
     // texts._groups[0].forEach(txt => (svg.select(this)
     //   .attr("x", cxvart)
     //   .attr("y", cyvart)) )
