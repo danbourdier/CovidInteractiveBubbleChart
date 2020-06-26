@@ -63,3 +63,11 @@ body {
   color: white;
   font-size: 20px;
 }
+
+.radio-button-div {
+  display: flex;
+  flex-direction: column;
+  background-color: grey;
+  border-radius: 4px;
+  padding: 12px 0px 12px 0px;
+}
