@@ -24,43 +24,38 @@
       "dodgerblue", "blue", "navy", "mediumslateblue", "fuchsia", "indigo", "ivory",
       "lavenderblush", "brown", "tan", "slategray", "hotpink", "mediumspringgreen",
       "seagreen"]
-    const svg_width = 950;
-    const svg_height = 600;
+    const svg_width = 1020;
+    const svg_height = 695;
 
     let svg = d3.select(".viewbox")
       .append("svg")
       .attr("height", svg_height)
       .attr("width", svg_width)
-    // .append("g")
-    // .attr("transform", "translate(0,0)") // same as margins; just centers our viewbox
-    // .attr("text-anchor", "middle")
-
     // ABOVE CODE REFERENCED FROM http://bl.ocks.org/wimdows/1502762
-    ////////////////////////////////////////////////
+
     // we use the below #queue when we have multiple files for use
     d3.queue() // allows us to be able to set gaps in time of execution(TOE)
       .defer(d3.csv, "data/csse_covid_19_data/csse_covid_19_daily_reports_us/06-20-2020.csv")
       // defer pretty much allows us halt execution of below until each file with a
       // #defer is loaded.
       .await(vis) // function that executes (below) upon load
-    // let forceX = d3.forceX(svg_width / 2).strength(0.05)
-    ////////////////////////////////////////////////////////////////////////////////
-    let forceStrength = 0.5;
-    let forceXCombine = d3.forceX(svg_width / 2).strength(forceStrength);
+
+    let forceStrength = 0.25;
+    let forceXCombine = d3.forceX((svg_width - 70) / 2).strength(forceStrength);
 
     let forceXSplit = d3.forceX(d => {
 
       if (d.Lat > 30) {
-        return 250
+        return 740
       } else if (d.Lat < 30) {
-        return 750
+        return 300
       }
 
     }).strength(forceStrength);
-    ////////////////////////////////////////////////////////////////////////////////
+
     const charge = d => {
       targetFilter = d[filter];
-      return -Math.pow(d[filter], 0.739) * forceStrength
+      return -Math.pow(d[filter], 0.78) * forceStrength
     }
     // above code references from D3's sample code for applying charge
     ////////////////////////
@@ -70,22 +65,28 @@
       // it doesnt matter what we name x and y below because they are just 
       // placeholders
       .force("x", forceXCombine)
-      .force("y", d3.forceY(svg_height / 2).strength(forceStrength))
+      .force("y", d3.forceY((svg_height - 95) / 2).strength(forceStrength))
       // the collide measurement on line 35 & line 46 must match so that the force between  
       // center points of differing bubbles can be equal to each circles radius (if collision was smaller then circles
       // would overlap)
-      // .force("collide", d3.forceCollide(d => ( Math.floor(Math.sqrt(d.Recovered) / 6 + 10) )) )
       .force('charge', d3.forceManyBody().strength(charge))
-    // the above code works better than the one above it!!! REPULSION FTW!!!
-    // had to use sqrt to drastically shrink values over 10000 to proportion    
-    ////////////////////////////////////////////////////////////////////////////////
+    // the above code works better than collide alone!!! REPULSION FTW!!!
+    sim
+      .force("collide", d3.forceCollide(d => ( scale(d[filter]) )) )
+
+
+    // let max = d3.max(data, function (d) { return +d.field_goal_attempts; });
+    let scale = d3.scaleSqrt().domain([0, 100000]).range([10, 80])
+    // the above code takes a max domain of expected values and proportionally sets it
+      // to our range value
     function vis(error, datapoints) {
       let g = svg.selectAll("g")
         .data(datapoints)
         .enter()
         .append("g")
         .attr("r", d => (
-          Math.floor(Math.sqrt(d[filter]) / 6 + 10)
+          // Math.floor(Math.sqrt(d[filter]) / 6 + 10)
+          scale(d[filter])
         ))
         .attr("transform", "translate(0,0)")
 
@@ -93,7 +94,8 @@
         .append("circle")
         .attr("class", "state")
         .attr("r", d => (
-          Math.floor(Math.sqrt(d[filter]) / 6 + 10)
+          // Math.floor(Math.sqrt(d[filter]) / 6 + 10)
+          scale(d[filter])
         )) // our radius of our bubbles
         .attr("fill", () => {
           return COLORS[Math.floor(Math.random() * COLORS.length - 1) + 1]
@@ -106,8 +108,10 @@
           cyvar = 500
           return cyvar
         })
-        .on("focus", d => (
+        .on("click", d => (
           console.log(d)
+          // sim 
+          //   .force("x", d3.forceX(2))
         ))
       // references above https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/cx
 
@@ -117,7 +121,7 @@
       // reference:: https://github.com/d3/d3-force  <--- DENSEEEEE
       sim.nodes(datapoints)
         .on('tick', ticked)
-
+ 
       let words = svg.selectAll("g");
       words.append("text")
         .text(d => d.Province_State)
@@ -137,9 +141,8 @@
 
         texts
           .attr("x", d => {
-            console.log(Math.floor(Math.sqrt(d[filter]) / 6 + 10))
-            console.log(d.x)
-            return d.x
+
+            return d.x - Math.floor(Math.sqrt(d[filter]) / 6 + 10)
           })
           .attr("y", d => {
             // console.log(d.Province_State.length / 2)
@@ -169,6 +172,8 @@
             .alphaTarget(0.20)
             .restart()
         ));
+
+
     }
 
   }

@@ -14,9 +14,9 @@ svg {
   /* left: 280px; */
   margin-left: auto;
   margin-right: auto;
-  width:950px;
-  height: 600px;
-  padding: 60px 35px 35px 35px;
+  width:1020px;
+  height: 695px;
+  /* padding: 2px 4px 2px 8px; */
   border-radius: 40px;
   background: #E0E5EC;
   box-shadow: 4px 4px 5px 0px inset #A3B1C6, -3px -3px 5px 0px inset #FFFFFF
@@ -67,7 +67,8 @@ body {
 .radio-button-div {
   display: flex;
   flex-direction: column;
-  background-color: grey;
+  background-color: #E0E5EC;
   border-radius: 4px;
   padding: 12px 0px 12px 0px;
 }
+
