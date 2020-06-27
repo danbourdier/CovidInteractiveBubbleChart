@@ -1,13 +1,13 @@
+// const state = require("./state_acronyms")
 
+// console.log(states.states)
 
   let radioListener = document.querySelector("div.radio-button-div") 
   radioListener.addEventListener('click', e => {
-    console.log(e.target.value)
-
-    d3.select("svg").remove();
+    if (e.target.value) {
+      d3.select("svg").remove();
     draw(e.target.value)
-
-
+    }
   });
 
   function draw(filter) {
@@ -18,11 +18,26 @@
     // .attr(if (flag === filter1) return $$)
 
     // IDEA; have a filter for recovery cases per capita in each state
-    const COLORS = ["lightsalmon", "red", "lightcoral", "orangered", "gold",
+    const states = {
+      "Alabama": "AL", "Alaska": "AK", "Arizona": "AZ", "Arkansas": "AR",
+      "California": "CA", "Colorado": "CO", "Connecticut": "CT",
+      "Delaware": "DE","Florida": "FL","Georgia": "GA", "Hawaii": "HI", "Idaho": "ID",
+      "Illinois": "IL", "Indiana": "IN", "Iowa": "IA", "Kansas": "KS", "Kentucky": "KY", 
+      "Louisiana": "LA", "Maine": "ME", "Maryland": "MD", "Massachusetts": "MA",
+      "Michigan": "MI", "Minnesota": "MN", "Mississippi": "MS", "Missouri": "MO", 
+      "Montana": "MT", "Nebraska": "NE", "Nevada": "NV", "New Hampshire": "NH", 
+      "New Jersey": "NJ", "New Mexico": "NM", "New York": "NY", "North Carolina": "NC", 
+      "North Dakota": "ND", "Ohio": "OH", "Oklahoma": "OK", "Oregon": "OR", 
+      "Pennsylvania": "PA", "Rhode Island": "RI", "South Carolina": "SC", "South Dakota": "SD", 
+      "Tennessee": "TN", "Texas": "TX", "Utah": "UT",  "Vermont": "VT", "Virginia": "VA", 
+      "Washington": "WA", "West Virginia": "WV", "Wisconsin": "WI", "Wyoming": "WY",
+    }
+
+    const COLORS = ["lightsalmon", "mediumvioletred", "lightcoral", "orangered", "gold",
       "darkorange", "khaki", "yellow", "lawngreen", "limegreen", "greenyellow",
       "mediumseagreen", "cyan", "aquamarine", "mediumturquoise", "deepskyblue",
-      "dodgerblue", "blue", "navy", "mediumslateblue", "fuchsia", "indigo", "ivory",
-      "lavenderblush", "brown", "tan", "slategray", "hotpink", "mediumspringgreen",
+      "dodgerblue", "blue", "mediumslateblue", "fuchsia", "mediumpurple", "ivory",
+      "brown", "tan", "slategray", "hotpink", "mediumspringgreen",
       "seagreen"]
     const svg_width = 1020;
     const svg_height = 695;
@@ -40,15 +55,14 @@
       // #defer is loaded.
       .await(vis) // function that executes (below) upon load
 
-    let forceStrength = 0.25;
+    let forceStrength = 0.2;
     let forceXCombine = d3.forceX((svg_width - 70) / 2).strength(forceStrength);
 
     let forceXSplit = d3.forceX(d => {
-
-      if (d.Lat > 30) {
-        return 740
-      } else if (d.Lat < 30) {
+      if (d.ISO3 === "true") {
         return 300
+      } else {
+        return 740
       }
 
     }).strength(forceStrength);
@@ -84,19 +98,22 @@
         .data(datapoints)
         .enter()
         .append("g")
-        .attr("r", d => (
-          // Math.floor(Math.sqrt(d[filter]) / 6 + 10)
-          scale(d[filter])
-        ))
-        .attr("transform", "translate(0,0)")
+        // .attr("r", d => (
+        //   scale(d[filter])
+        // ))
+        // .attr("transform", "translate(0,0)")
+
 
       let bubbles = svg.selectAll("g")
         .append("circle")
         .attr("class", "state")
-        .attr("r", d => (
-          // Math.floor(Math.sqrt(d[filter]) / 6 + 10)
-          scale(d[filter])
-        )) // our radius of our bubbles
+        .attr("r", d => {
+          // d[filter] = Math.floor(d[filter])
+          if (states[d.Province_State]) {
+            return scale( d[filter] )
+          }
+        }) // our radius of our bubbles
+
         .attr("fill", () => {
           return COLORS[Math.floor(Math.random() * COLORS.length - 1) + 1]
         })
@@ -108,11 +125,22 @@
           cyvar = 500
           return cyvar
         })
-        .on("click", d => (
-          console.log(d)
-          // sim 
-          //   .force("x", d3.forceX(2))
-        ))
+
+        .on("click", d => {
+          d.ISO3 = 'true'
+          sim
+            .force("x", forceXSplit)
+            .alphaTarget(0.20)
+            .restart()
+          d.ISO3 = 'false'
+          d3.event.stopPropagation()
+        })
+
+        d3.select("svg")
+          .on("click", d => {
+            // will have to reset flagged data on click
+            d3.event.stopPropagation() // stops event from bubbling up
+          })
       // references above https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/cx
 
       // perhaps the coolest thing ever! The d3.forceSimulation().nodes
@@ -124,7 +152,10 @@
  
       let words = svg.selectAll("g");
       words.append("text")
-        .text(d => d.Province_State)
+        .text(
+          d => (states[d.Province_State] ? states[d.Province_State] : "")
+          )
+      // ( d.Province_State.length > 1 ? d.Province_State[0] + d.Province_State.split(" ")[d.Province_State.split(" ").length - 1[0]] : "welp" 
 
       let texts = svg.selectAll("text")
 
@@ -142,28 +173,30 @@
         texts
           .attr("x", d => {
 
-            return d.x - Math.floor(Math.sqrt(d[filter]) / 6 + 10)
+            return d.x - 6
           })
           .attr("y", d => {
-            // console.log(d.Province_State.length / 2)
-            // console.log(d.r)
+
             return d.y
           })
           .style("font-size", d => {
             return (
-              Math.floor(Math.sqrt(d[filter]) / 6 + 10) / 3.14)
+              Math.floor(Math.sqrt(d[filter]) / 6 + 24) / 3.14)
+            
           })
+          .style("font-weight", "bold")
+          .style("font-family", "Arial")
           .style("text-transform", "uppercase")
       }
       // our buttons to override the forcesim factors
       d3.select(".button-reset")
-        .on("click", () => (
+        .on("click", d => {
           sim
             .force("x", forceXCombine)
             .alphaTarget(0.20)
             // https://stackoverflow.com/questions/46426072/what-is-the-difference-between-alphatarget-and-alphamin
             .restart()
-        ));
+        });
 
       d3.select(".button-split")
         .on("click", () => (
@@ -180,14 +213,6 @@
 
 draw("Recovered")
   
-
-
-
-
-
-
-
-
 
 
   ////////////////////////////////////////////////////////////////////////////////

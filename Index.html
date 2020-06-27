@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COVID Bubble Chart</title>
+  <header>
+    <div class="header-links">Links</div>
+
+    <div class="header-extras">Extras</div>
+  </header>
+  <link rel="stylesheet" href="./stylesheets/layout.css">
+  <link rel="stylesheet" href="./stylesheets/radio_buttons.css">
+  <link rel="stylesheet" href="./stylesheets/circles.css">
+  <link rel="stylesheet" href="./stylesheets/other_sections.css">
+  <link rel="stylesheet" href="./stylesheets/header.css">
+
+  <script src="https://d3js.org/d3.v4.js" charset="utf-8"></script>
+</head>
+<body>
+  <section class="viewbox-container">
+    <aside class="left-buttons">
+      <button class="button-reset">RESET</button>
+      <button class="button-split">SPLIT</button>
+    </aside>
+    
+    <main class="viewbox"></main>
+    
+    <aside class="right-buttons">
+
+      <div class="radio-button-div">
+        <div class="radio-container">
+          <input type="radio" name="filter" value="Recovered" id="recovered" class="rb">
+          <label class="label" for="recovered">
+            <div class="flag"></div>
+            <span class="txt">Recovered</span>
+          </label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" name="filter" value="Confirmed" id="confirmed" class="rb">
+          <label class="label" for="confirmed">
+            <div class="flag"></div>
+            <span class="txt">Confirmed</span>
+          </label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" name="filter" value="Deaths" id="deaths" class="rb">
+          <label class="label" for="deaths">
+            <div class="flag"></div>
+            <span class="txt">Deaths</span>
+          </label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" name="filter" value="Active" id="active" class="rb">
+          <label class="label" for="active">
+            <div class="flag"></div>
+            <span class="txt">Active Cases</span>
+          </label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" name="filter" value="Incident_Rate" id="inc-rate"class="rb">
+          <label class="label" for="inc-rate">
+            <div class="flag"></div>
+            <span class="txt">Incident Rate</span>
+          </label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" name="filter" value="People_Tested" id="tested" class="rb">
+          <label class="label" for="tested">
+            <div class="flag"></div>
+            <span class="txt">People Tested</span>
+          </label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" name="filter" value="People_Hospitalized" id="people-deprecated" class="rb">
+          <label class="label" for="people-deprecated">
+            <div class="flag"></div>
+            <span class="txt">People Warded</span>
+          </label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" name="filter" value="Hospitalization_Rate" id="hosp-rate" class="rb">
+          <label class="label" for="hosp-rate">
+            <div class="flag"></div>
+            <span class="txt">Treatment Rate</span>
+          </label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" name="filter" value="Testing_Rate" id="test-rate" class="rb">
+          <label class="label" for="test-rate">
+            <div class="flag"></div>
+            <span class="txt">Testing Rate</span>
+          </label>
+        </div>
+        <div class="radio-container">
+          <input type="radio" name="filter" value="Mortality_Rate" id="mort-rate" class="rb">
+          <label class="label" for="mort-rate">
+            <div class="flag"></div>
+            <span class="txt">Mortality Rate</span>
+          </label>
+        </div>
+        
+      </div>
+    </aside>
+
+    <script src="executable.js"></script>
+  
+  </section>
+
+  </body>
+</html>

@@ -1,0 +1,13 @@
+.state:hover {
+  fill: black;
+  opacity: 0.4;
+  /* outline: black; */
+  /* transition: all 2s ease; */
+}
+
+.state {
+  stroke: black;
+  stroke-width: 2px;
+  stroke-opacity: .5;
+  opacity: .8;
+}

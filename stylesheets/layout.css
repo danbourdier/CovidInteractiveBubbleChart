@@ -1,0 +1,39 @@
+.viewbox-container {
+      display: flex;
+      flex-direction: row;
+}
+
+
+/* header */
+
+
+body {
+  background-color: #E0E5EC;
+}
+
+svg {
+  background-color: lightgrey;
+  position: relative;
+  /* left: 280px; */
+  margin-left: auto;
+  margin-right: auto;
+  width:1020px;
+  height: 695px;
+  /* padding: 2px 4px 2px 8px; */
+  border-radius: 40px;
+  background: #E0E5EC;
+  box-shadow: 4px 4px 5px 0px inset #A3B1C6, -3px -3px 5px 0px inset #FFFFFF
+}
+.left-buttons {
+  margin-left: auto;
+
+}
+.right-buttons {
+  margin-right: auto;
+
+}
+
+
+
+
+
