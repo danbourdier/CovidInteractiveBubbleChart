@@ -1,0 +1,15 @@
+#aside-r {
+  /* background: linear-gradient(cornflowerblue, lightblue); */
+  background-color: cornflowerblue;
+  border-radius: 4px;
+  margin-left: 20px;
+  min-width: 200px;
+  text-align: center;
+  color: white;
+  opacity: .72;
+  padding: 10px 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  margin-bottom: 6px; 
+  margin-top: 6px;
+}

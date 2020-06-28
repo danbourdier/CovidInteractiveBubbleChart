@@ -8,7 +8,7 @@
 
 
 body {
-  background-color: #E0E5EC;
+  background-color: #F7F4E9;
 }
 
 svg {
@@ -17,11 +17,11 @@ svg {
   /* left: 280px; */
   margin-left: auto;
   margin-right: auto;
-  width:1020px;
+  width:920px;
   height: 695px;
   /* padding: 2px 4px 2px 8px; */
   border-radius: 40px;
-  background: #E0E5EC;
+  background: #F7F4E9;
   box-shadow: 4px 4px 5px 0px inset #A3B1C6, -3px -3px 5px 0px inset #FFFFFF
 }
 .left-buttons {
@@ -30,7 +30,8 @@ svg {
 }
 .right-buttons {
   margin-right: auto;
-
+  display: flex;
+  flex-direction: column;
 }
 
 

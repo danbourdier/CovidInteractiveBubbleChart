@@ -33,13 +33,18 @@
       "Washington": "WA", "West Virginia": "WV", "Wisconsin": "WI", "Wyoming": "WY",
     }
 
-    const COLORS = ["lightsalmon", "mediumvioletred", "lightcoral", "orangered", "gold",
-      "darkorange", "khaki", "yellow", "lawngreen", "limegreen", "greenyellow",
-      "mediumseagreen", "cyan", "aquamarine", "mediumturquoise", "deepskyblue",
-      "dodgerblue", "blue", "mediumslateblue", "fuchsia", "mediumpurple", "ivory",
-      "brown", "tan", "slategray", "hotpink", "mediumspringgreen",
-      "seagreen"]
-    const svg_width = 1020;
+    // const COLORS = ["lightsalmon", "mediumvioletred", "lightcoral", "orangered", "gold",
+    //   "darkorange", "khaki", "yellow", "lawngreen", "limegreen", "greenyellow",
+    //   "mediumseagreen", "cyan", "aquamarine", "mediumturquoise", "deepskyblue",
+    //   "dodgerblue", "blue", "mediumslateblue", "fuchsia", "mediumpurple", "ivory",
+    //   "brown", "tan", "slategray", "hotpink", "mediumspringgreen",
+    //   "seagreen"]
+
+    const COLORS = ["#ee6407", "#585481", "#279af1", "#19297c", "#ffffff"
+
+    ];
+    
+    const svg_width = 920;
     const svg_height = 695;
 
     let svg = d3.select(".viewbox")
@@ -56,13 +61,13 @@
       .await(vis) // function that executes (below) upon load
 
     let forceStrength = 0.2;
-    let forceXCombine = d3.forceX((svg_width - 70) / 2).strength(forceStrength);
+    let forceXCombine = d3.forceX((svg_width + 30) / 2).strength(forceStrength);
 
     let forceXSplit = d3.forceX(d => {
       if (d.ISO3 === "true") {
         return 300
       } else {
-        return 740
+        return 625
       }
 
     }).strength(forceStrength);
@@ -108,11 +113,19 @@
         .append("circle")
         .attr("class", "state")
         .attr("r", d => {
-          // d[filter] = Math.floor(d[filter])
+          d[filter] = Math.floor(d[filter])
           if (states[d.Province_State]) {
             return scale( d[filter] )
           }
         }) // our radius of our bubbles
+        // .transition()
+        // .attr("r", d => {
+        //   // d[filter] = Math.floor(d[filter])
+        //   if (states[d.Province_State]) {
+        //     return scale(d[filter])
+        //   }
+        // }) // our radius of our bubbles
+
 
         .attr("fill", () => {
           return COLORS[Math.floor(Math.random() * COLORS.length - 1) + 1]
@@ -125,7 +138,6 @@
           cyvar = 500
           return cyvar
         })
-
         .on("click", d => {
           d.ISO3 = 'true'
           sim
@@ -135,6 +147,8 @@
           d.ISO3 = 'false'
           d3.event.stopPropagation()
         })
+
+        
 
         d3.select("svg")
           .on("click", d => {

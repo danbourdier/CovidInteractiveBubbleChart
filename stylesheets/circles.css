@@ -1,13 +1,16 @@
 .state:hover {
-  fill: black;
-  opacity: 0.4;
-  /* outline: black; */
-  /* transition: all 2s ease; */
+  /* fill: black; */
+  opacity: 0.3;
+
+
+  /* transition: .5s ; */
 }
 
 .state {
   stroke: black;
   stroke-width: 2px;
-  stroke-opacity: .5;
-  opacity: .8;
+  stroke-opacity: .4;
+  opacity: .85;
+
+  /* transition: all 1s ease-in; */
 }
