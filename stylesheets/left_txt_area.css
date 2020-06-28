@@ -3,7 +3,7 @@
   flex-direction: column;
   margin-right: 20px;
   background: #F7F4E9;
-  padding: 6px 6px;
+  padding: 6px 4px;
   border-radius: 16px;
   box-shadow:
     4px 4px 4px 0px #A3B1C6 inset,
@@ -12,7 +12,6 @@
   font-size: 12px;
   /* text-transform: capitalize; */
   opacity: .6;
-  transition: opacity .2s linear, transform .2s ease-out;
 }
 
 .left-text-area span {
@@ -41,9 +40,9 @@
 
 }
 #info-title div{
-  margin-top: 10px;
-  margin-bottom: 20px;
-  font-size: 23px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-size: 22px;
   text-transform: uppercase;
   font-weight: bold;
 }
