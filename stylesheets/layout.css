@@ -26,6 +26,8 @@ svg {
 }
 .left-buttons {
   margin-left: auto;
+  display: flex;
+  flex-direction: column;
 
 }
 .right-buttons {

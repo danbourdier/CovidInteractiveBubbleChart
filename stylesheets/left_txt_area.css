@@ -1,0 +1,44 @@
+.left-text-area {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  background: #F7F4E9;
+  padding: 6px 6px;
+  border-radius: 16px;
+  box-shadow:
+    4px 4px 4px 0px #A3B1C6 inset,
+    -4px -4px 4px 0px #ffffff inset;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  /* text-transform: capitalize; */
+  opacity: .6;
+  transition: opacity .2s linear, transform .2s ease-out;
+}
+
+.left-text-area span {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+.left-text-area span div {
+  color: black;
+  font-size: 10px;
+}
+
+.button-reset {
+  margin-right: 20px;
+  margin-left: 0px !important;
+}
+
+#info-title {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+#info-title div{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-transform: uppercase;
+}

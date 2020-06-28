@@ -1,4 +1,4 @@
-#aside-r {
+#aside {
   /* background: linear-gradient(cornflowerblue, lightblue); */
   background-color: cornflowerblue;
   border-radius: 4px;
@@ -13,3 +13,8 @@
   margin-bottom: 6px; 
   margin-top: 6px;
 }
+
+#aside:active {
+  border: inset;
+}
+

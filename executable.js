@@ -212,13 +212,13 @@
             .restart()
         });
 
-      d3.select(".button-split")
-        .on("click", () => (
-          sim
-            .force("x", forceXSplit)
-            .alphaTarget(0.20)
-            .restart()
-        ));
+      // d3.select(".button-split")
+      //   .on("click", () => (
+      //     sim
+      //       .force("x", forceXSplit)
+      //       .alphaTarget(0.20)
+      //       .restart()
+      //   ));
 
 
     }
