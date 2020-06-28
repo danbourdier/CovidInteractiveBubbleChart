@@ -42,7 +42,10 @@
 #info-title div{
   margin-top: 12px;
   margin-bottom: 12px;
-  font-size: 22px;
+  font-size: 20px;
   text-transform: uppercase;
   font-weight: bold;
+}
+#info-title div{
+  filter: drop-shadow(2px 5px 2px black);
 }

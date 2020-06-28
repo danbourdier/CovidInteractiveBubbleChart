@@ -1,5 +1,5 @@
+// import styles from "../src/styles/index.scss";
 // const state = require("./state_acronyms")
-
 // console.log(states.states)
 
   let radioListener = document.querySelector("div.radio-button-div") 
