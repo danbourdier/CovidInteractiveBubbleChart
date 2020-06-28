@@ -10,7 +10,7 @@ header {
   margin-right: auto;
   margin-bottom: 10px;
   background: cornflowerblue;
-
+  align-items: center;
   opacity: .7;
   width: 100%;
   border-radius: 5px;
@@ -25,4 +25,43 @@ header {
 
 header div:first-of-type {
   margin-left: 40px;
+}
+
+
+#third-header-link {
+  background-position: center;
+  background-image: url(../images/angel.png);
+  background-size: contain;
+  min-width: 30px;
+  min-height: 30px;
+  max-width: 30px;
+  max-height: 30px;
+}
+#second-header-link {
+  background-position: center;
+  background-image: url(../images/in.png);
+  background-size: cover;
+  min-width: 30px;
+  min-height: 30px;
+  max-width: 30px;
+  max-height: 30px;
+}
+#first-header-link {
+  background-position: center;
+  background-image: url(../images/git.png);
+  background-size: cover;
+  min-width: 30px;
+  min-height: 30px;
+  max-width: 30px;
+  max-height: 30px;
+}
+
+.header-links {
+  display: flex;
+  flex-direction: row;
+  margin-right: 40px;
+}
+.header-links a{
+  margin-right: 20px;
+  border-radius: 4px;
 }
