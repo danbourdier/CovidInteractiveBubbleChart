@@ -6,12 +6,10 @@ header {
   display: flex;
   width: 1405px;
   height: 65px;
-  justify-content: space-between;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
   background: cornflowerblue;
-  align-items: center;
 
   opacity: .7;
   width: 100%;
@@ -23,4 +21,8 @@ header {
   font-weight: bold;
   margin: auto;
   color: white;
+}
+
+header div:first-of-type {
+  margin-left: 40px;
 }
