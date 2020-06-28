@@ -1,0 +1,39 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "COVID-19 Interactive Bubble Chart",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danbourdier/CovidInteractiveBubbleChart.git"
+  },
+  "author": "Daniel Bourdier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danbourdier/CovidInteractiveBubbleChart/issues"
+  },
+  "homepage": "https://github.com/danbourdier/CovidInteractiveBubbleChart#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "autoprefixer": "^9.8.4",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.6.0",
+    "fibers": "^5.0.0",
+    "file-loader": "^6.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.26.9",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  }
+}

@@ -1,4 +1,4 @@
-// Further development for DRYer code on executable
+// Further development for DRYer code on index.js
 
 
 const states = {
