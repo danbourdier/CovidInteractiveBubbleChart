@@ -55,7 +55,7 @@
 
     // we use the below #queue when we have multiple files for use
     d3.queue() // allows us to be able to set gaps in time of execution(TOE)
-      .defer(d3.csv, "data/csse_covid_19_data/csse_covid_19_daily_reports_us/06-20-2020.csv")
+      .defer(d3.csv, "https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_daily_reports_us/06-27-2020.csv")
       // defer pretty much allows us halt execution of below until each file with a
       // #defer is loaded.
       .await(vis) // function that executes (below) upon load
