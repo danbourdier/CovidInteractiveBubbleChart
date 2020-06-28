@@ -117,16 +117,7 @@
           if (states[d.Province_State]) {
             return scale( d[filter] )
           }
-        }) // our radius of our bubbles
-        // .transition()
-        // .attr("r", d => {
-        //   // d[filter] = Math.floor(d[filter])
-        //   if (states[d.Province_State]) {
-        //     return scale(d[filter])
-        //   }
-        // }) // our radius of our bubbles
-
-
+        }) 
         .attr("fill", () => {
           return COLORS[Math.floor(Math.random() * COLORS.length - 1) + 1]
         })
@@ -145,16 +136,41 @@
             .alphaTarget(0.20)
             .restart()
           d.ISO3 = 'false'
-          d3.event.stopPropagation()
+          // d3.event.stopPropagation()
+          document.getElementById(`Province_State`)
+            .innerText = d.Province_State;
+          document.getElementById(`Recovered`)
+            .innerText = d.Recovered.toFixed(2);
+          document.getElementById(`Confirmed`)
+            .innerText = d.Confirmed;
+          document.getElementById(`Deaths`)
+            .innerText = Number(d.Deaths).toFixed(2);
+          document.getElementById(`Active`)
+            .innerText = Number(d.Active).toFixed(2);
+          document.getElementById(`Incident_Rate`)
+            .innerText = Number(d.Incident_Rate).toFixed(2);
+          document.getElementById(`People_Tested`)
+            .innerText = Number(d.People_Tested).toFixed(2);
+          document.getElementById(`People_Hospitalized`)
+            .innerText = d.People_Hospitalized;
+          document.getElementById(`Mortality_Rate`)
+            .innerText = Number(d.Mortality_Rate).toFixed(2);
+          document.getElementById(`Testing_Rate`)
+            .innerText = Number(d.Testing_Rate).toFixed(2);
+          document.getElementById(`Hospitalization_Rate`)
+            .innerText = Number(d.Hospitalization_Rate).toFixed(2);
         })
 
-        
 
-        d3.select("svg")
-          .on("click", d => {
-            // will have to reset flagged data on click
-            d3.event.stopPropagation() // stops event from bubbling up
-          })
+          
+
+
+
+        // d3.select("svg")
+        //   .on("click", d => {
+        //     // will have to reset flagged data on click
+        //     d3.event.stopPropagation() // stops event from bubbling up
+        //   })
       // references above https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/cx
 
       // perhaps the coolest thing ever! The d3.forceSimulation().nodes
@@ -211,15 +227,6 @@
             // https://stackoverflow.com/questions/46426072/what-is-the-difference-between-alphatarget-and-alphamin
             .restart()
         });
-
-      // d3.select(".button-split")
-      //   .on("click", () => (
-      //     sim
-      //       .force("x", forceXSplit)
-      //       .alphaTarget(0.20)
-      //       .restart()
-      //   ));
-
 
     }
 

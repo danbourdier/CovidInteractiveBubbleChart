@@ -21,9 +21,12 @@
   flex-direction: row;
   align-items: baseline;
 }
+
 .left-text-area span div {
   color: black;
   font-size: 10px;
+  margin-left: 5px;
+  font-weight: bolder;
 }
 
 .button-reset {
@@ -35,10 +38,12 @@
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
+
 }
 #info-title div{
   margin-top: 10px;
   margin-bottom: 20px;
-  font-size: 20px;
+  font-size: 23px;
   text-transform: uppercase;
+  font-weight: bold;
 }
