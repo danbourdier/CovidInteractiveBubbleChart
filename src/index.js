@@ -51,7 +51,7 @@
 
     // we use the below #queue when we have multiple files for use
     d3.queue() // allows us to be able to set gaps in time of execution(TOE)
-      .defer(d3.csv, "../src/06-20-2020.csv")
+      .defer(d3.csv, "./src/06-20-2020.csv")
       // defer pretty much allows us halt execution of below until each file with a
       // #defer is loaded.
       .await(vis) // function that executes (below) upon load
