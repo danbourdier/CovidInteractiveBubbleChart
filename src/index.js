@@ -98,6 +98,8 @@
       let g = svg.selectAll("g")
         .data(datapoints)
         .enter()
+
+      g
         .append("g")
         // .attr("r", d => (
         //   scale(d[filter])
