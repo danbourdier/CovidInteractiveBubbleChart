@@ -13,16 +13,11 @@
     draw("Recovered")
   });
   
-
+  let helpBox = document.getElementById("help-box")
+  // helpBox.innerText = ""
 
 
   function draw(filter) {
-    // To have options for filters on our vis we can have conditional classNames/outputs that 
-    // depend on variables that can act as flags for each attr below.
-    // E.G:  
-    // let flag = filter1
-    // .attr(if (flag === filter1) return $$)
-
     // IDEA; have a filter for recovery cases per capita in each state
     const states = {
       "Alabama": "AL", "Alaska": "AK", "Arizona": "AZ", "Arkansas": "AR",
@@ -39,16 +34,7 @@
       "Washington": "WA", "West Virginia": "WV", "Wisconsin": "WI", "Wyoming": "WY",
     }
 
-    // const COLORS = ["lightsalmon", "mediumvioletred", "lightcoral", "orangered", "gold",
-    //   "darkorange", "khaki", "yellow", "lawngreen", "limegreen", "greenyellow",
-    //   "mediumseagreen", "cyan", "aquamarine", "mediumturquoise", "deepskyblue",
-    //   "dodgerblue", "blue", "mediumslateblue", "fuchsia", "mediumpurple", "ivory",
-    //   "brown", "tan", "slategray", "hotpink", "mediumspringgreen",
-    //   "seagreen"]
-
-    const COLORS = ["#ee6407", "#585481", "#279af1", "#19297c", "#ffffff"
-
-    ];
+    const COLORS = ["#ee6407", "#585481", "#279af1", "#19297c", "#ffffff"];
     
     const svg_width = 920;
     const svg_height = 695;
@@ -169,16 +155,49 @@
             .innerText = Number(d.Hospitalization_Rate).toFixed(2);
         })
 
+      // d3 mouseover events
+      d3.select(".header-links")
+        .on("mouseover", () => {
+          helpBox.innerHTML = "10 reasons to Hire a Veteran https://www.military.com/hiring-veterans/resources/10-reasons-to-hire-vets.html"
+           
 
-          
+        })
+
+      d3.select("#reset-button-right")
+        .on("mouseover", () => {
+          helpBox.innerHTML = "Click to reset bubble proportions"
+        })
+        .on("mouseout", () => {
+          helpBox.innerHTML = "Hover Over any Element for a Tool Tip"
+        })
+
+      d3.select(".radio-button-div")
+        .on("mouseover", () => {
+          helpBox.innerHTML = "Click any button to size bubbles by selection"
+        })
+        .on("mouseout", () => {
+          helpBox.innerHTML = "Hover Over any Element for a Tool Tip"
+        })
+
+      d3.select(".button-reset")
+        .on("mouseover", () => {
+          helpBox.innerHTML = "Click to reset state data"
+        })
+        .on("mouseout", () => {
+          helpBox.innerHTML = "Hover Over any Element for a Tool Tip"
+        })
+
+      d3.select("svg")
+        .on("mouseover", () => {
+          helpBox.innerHTML = "Click on a state to view it's content on the left-hand side"
+        })
+        .on("mouseout", () => {
+          helpBox.innerHTML = "Hover Over any Element for a Tool Tip"
+        })
+      // d3 mouseover events above
 
 
 
-        // d3.select("svg")
-        //   .on("click", d => {
-        //     // will have to reset flagged data on click
-        //     d3.event.stopPropagation() // stops event from bubbling up
-        //   })
       // references above https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/cx
 
       // perhaps the coolest thing ever! The d3.forceSimulation().nodes
