@@ -6,6 +6,16 @@
     }
   });
 
+  let resetRight = document.getElementById("reset-button-right");
+
+  resetRight.addEventListener("click", () => {
+    d3.select("svg").remove();
+    draw("Recovered")
+  });
+  
+
+
+
   function draw(filter) {
     // To have options for filters on our vis we can have conditional classNames/outputs that 
     // depend on variables that can act as flags for each attr below.
@@ -217,6 +227,7 @@
           .style("text-transform", "uppercase")
       }
       // our buttons to override the forcesim factors
+      
       d3.selectAll(".button-reset")
         .on("click", d => {
           sim
