@@ -217,13 +217,36 @@
           .style("text-transform", "uppercase")
       }
       // our buttons to override the forcesim factors
-      d3.select(".button-reset")
+      d3.selectAll(".button-reset")
         .on("click", d => {
           sim
             .force("x", forceXCombine)
             .alphaTarget(0.20)
             // https://stackoverflow.com/questions/46426072/what-is-the-difference-between-alphatarget-and-alphamin
             .restart()
+          document.getElementById(`Province_State`)
+            .innerText = "Select a State";
+          document.getElementById(`Recovered`)
+            .innerText = "Select a State";
+          document.getElementById(`Confirmed`)
+            .innerText = "Select a State";
+          document.getElementById(`Deaths`)
+            .innerText = "Select a State";
+          document.getElementById(`Active`)
+            .innerText = "Select a State";
+          document.getElementById(`Incident_Rate`)
+            .innerText = "Select a State";
+          document.getElementById(`People_Tested`)
+            .innerText = "Select a State";
+          document.getElementById(`People_Hospitalized`)
+            .innerText = "Select a State";
+          document.getElementById(`Mortality_Rate`)
+            .innerText = "Select a State";
+          document.getElementById(`Testing_Rate`)
+            .innerText = "Select a State";
+          document.getElementById(`Hospitalization_Rate`)
+            .innerText = "Select a State";
+
         });
 
     }

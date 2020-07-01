@@ -11,6 +11,10 @@
   stroke-width: 2px;
   stroke-opacity: .4;
   opacity: .85;
-
+  cursor: pointer;
   /* transition: all 1s ease-in; */
+}
+
+text {
+  cursor: pointer;
 }

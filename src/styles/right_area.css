@@ -1,8 +1,15 @@
-#aside {
-  /* background: linear-gradient(cornflowerblue, lightblue); */
+.right-buttons {
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#reset-button-right {
+  width: 200px;
+  border: none;
   background-color: cornflowerblue;
   border-radius: 4px;
-  margin-left: 20px;
+  margin: 6px 0px 6px 20px !important;
   min-width: 200px;
   text-align: center;
   color: white;
@@ -10,12 +17,7 @@
   padding: 10px 0px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
-  margin-bottom: 6px; 
-  margin-top: 6px;
   cursor: pointer;
+
+  outline: none;
 }
-
-/* #aside:active {
-  border: inset;
-} */
-

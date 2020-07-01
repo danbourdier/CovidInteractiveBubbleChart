@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="./src/styles/left_txt_area.css">
   <link rel="stylesheet" href="./src/styles/other_sections.css">
   <link rel="stylesheet" href="./src/styles/radio_buttons.css">
+  <link rel="stylesheet" href="./src/styles/right_area.css">
 
   <script src="https://d3js.org/d3.v4.js" charset="utf-8"></script>
 </head>
@@ -40,7 +41,7 @@
     <aside class="left-buttons">
       <!-- <button class="button-split">SPLIT</button> -->
       
-      <span id="aside" class="button-reset">RESET</span>
+      <span id="aside" class="button-reset">RESET SELECTION</span>
       <div class="left-text-area">
         <span id="info-title">STATE: 
           <div id="Province_State">Select a State</div>
@@ -82,6 +83,7 @@
     <main class="viewbox"></main>
     
     <aside class="right-buttons">
+      <button class="button-reset" id="reset-button-right" type="reset">RESET</button>
       <span id="aside">SORT BY LARGEST:</span>
       <div class="radio-button-div">
         <div class="radio-container">

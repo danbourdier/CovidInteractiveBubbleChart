@@ -12,6 +12,7 @@
   font-size: 12px;
   /* text-transform: capitalize; */
   opacity: .6;
+  min-width: 225px;
 }
 
 .left-text-area span {
