@@ -14,6 +14,7 @@
   });
   
   let helpBox = document.getElementById("help-box")
+  let helpBoxContainer = document.getElementById("help-box-container")
   // helpBox.innerText = ""
 
 
@@ -156,13 +157,29 @@
         })
 
       // d3 mouseover events
+
       d3.select(".header-links")
         .on("mouseover", () => {
-          helpBox.innerHTML = "10 reasons to Hire a Veteran https://www.military.com/hiring-veterans/resources/10-reasons-to-hire-vets.html"
-           
-
+          helpBox.innerHTML = "Google 10 non-tax related reasons to hire a Veteran!"
+          helpBoxContainer
+            // .style.backgroundColor = "lightgreen"
+            .style.boxShadow = "0px 10px 40px 20px lightgreen"
+          
+        })
+        .on("mouseout", () => {
+          helpBox.innerHTML = "Hover Over any Element for a Tool Tip"
+          helpBoxContainer
+            .style.boxShadow = "4px 4px 4px 0px #A3B1C6 inset, -4px -4px 4px 0px #ffffff inset"
         })
 
+      d3.select(".left-text-area")
+        .on("mouseover", () => {
+          helpBox.innerHTML = "Window showing state COVID statistics"
+        })
+        .on("mouseout", () => {
+          helpBox.innerHTML = "Hover Over any Element for a Tool Tip"
+        })
+        
       d3.select("#reset-button-right")
         .on("mouseover", () => {
           helpBox.innerHTML = "Click to reset bubble proportions"
