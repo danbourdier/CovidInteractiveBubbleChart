@@ -29,4 +29,7 @@
 
 .exc123 {
   cursor: default !important;
+  color: black !important;
+  opacity: 0.4 !important; 
+  background-color: transparent !important; 
 }
