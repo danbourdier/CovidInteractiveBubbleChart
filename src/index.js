@@ -135,19 +135,19 @@
           document.getElementById(`Province_State`)
             .innerText = d.Province_State;
           document.getElementById(`Recovered`)
-            .innerText = d.Recovered.toFixed(2);
+            .innerText = Number(d.Recovered);
           document.getElementById(`Confirmed`)
             .innerText = d.Confirmed;
           document.getElementById(`Deaths`)
-            .innerText = Number(d.Deaths).toFixed(2);
+            .innerText = Number(d.Deaths);
           document.getElementById(`Active`)
-            .innerText = Number(d.Active).toFixed(2);
+            .innerText = Number(d.Active);
           document.getElementById(`Incident_Rate`)
             .innerText = Number(d.Incident_Rate).toFixed(2);
           document.getElementById(`People_Tested`)
             .innerText = Number(d.People_Tested).toFixed(2);
           document.getElementById(`People_Hospitalized`)
-            .innerText = d.People_Hospitalized;
+            .innerText = Number(d.People_Hospitalized);
           document.getElementById(`Mortality_Rate`)
             .innerText = Number(d.Mortality_Rate).toFixed(2);
           document.getElementById(`Testing_Rate`)
