@@ -3,12 +3,12 @@
 
 [Live Site](https://danbourdier.github.io/CovidInteractiveBubbleChart/)
 
----
+
 
 
 
 ### Summary
-Covid Interactive Bubble Chart or (CIBC) is a feature rich data visualization that works on the d3 library. It enables the user direct, asynchronously updated elements through the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University. Updates are made everyday at 12pm. Users will be able to choose between available statistics such as recovery rate per country, current and new cases. 
+Covid Interactive Bubble Chart or (CIBC) is a feature rich data visualization that works on the D3.js library. It enables the user direct, asynchronously updated elements through the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University. Updates are made everyday at 12pm. Users will be able to choose between available statistics such as recovery rate per country, current and new cases. 
 
 ---
 
@@ -24,6 +24,15 @@ Covid Interactive Bubble Chart or (CIBC) is a feature rich data visualization th
 2. Clickable bubbles that enable you to isolate an element and see all data associated with the country/state inside
 
 
+### Featured
+
+![featureGif][https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/vids/gifShowcase.gif]
+
+---
+
+
+
+
 ### Wireframe
 
 ![wireframe](https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/images/wireframe.png)
@@ -36,5 +45,5 @@ Covid Interactive Bubble Chart or (CIBC) is a feature rich data visualization th
 * `JavaScript`
 * `D3 library`
 * `HTML 5`
-* `CSS`
+* `CSS 3`
  
