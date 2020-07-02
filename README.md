@@ -1,4 +1,4 @@
-# CovidInteractiveBubbleChart
+# Covid-19 Interactive BubbleChart
 ---
 
 
@@ -73,7 +73,8 @@ API origination:  https://systems.jhu.edu/
 
 ---
 
-
+### Support and advocate for your local VFW!
+[Link to VFW locator!](https://www.vfw.org/find-a-post)
 
 
 <!-- ### Wireframe
