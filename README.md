@@ -26,7 +26,7 @@ Covid Interactive Bubble Chart or (CIBC) is a feature rich data visualization th
 
 ### Featured
 
-![featureGif][https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/vids/gifShowcase.gif]
+![featureGif](https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/vids/gifShowcase.gif)
 
 ---
 
