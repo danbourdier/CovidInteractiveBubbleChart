@@ -2,8 +2,16 @@
 ---
 
 
+### Tech
+
+* `Node.js`
+* `JavaScript`
+* `D3 library`
+* `HTML 5`
+* `CSS 3`
 
 
+---
 
 
 ## Table Of Contents
@@ -25,18 +33,6 @@ Covid Interactive Bubble Chart or (CIBC) is a feature rich data visualization th
 
 ### Links
 API origination:  https://systems.jhu.edu/
-
-
----
-
-
-### Tech
-
-* `Node.js`
-* `JavaScript`
-* `D3 library`
-* `HTML 5`
-* `CSS 3`
 
 
 ---
