@@ -48,10 +48,10 @@ Covid Interactive Bubble Chart or (CIBC) is a feature rich data visualization th
 &nbsp;
 
 
-Our code below shows how D3 allows us to accomplish the feature above by binding our data points and re-rendering them with the chosen parameter.
-<img align="right" src="https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/images/applied_force_sim.png" width="400">
-By default, we size each datapoint(node) according to recovery cases. 
-But with our passed argument `filter` we can achieve dynamic rendering.  
+Because of D3's integrated force sim, free-flowing nodes were realized. Force sim enables under-the-hood redrawing of nodes based on their x,y position in the 
+contained window. With respect to each node's circumfrence we are able to calculate to the perfect measurement to prevent overlapping and stagnant positioning.
+<img align="right" src="https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/images/applied_force_sim.png" width="450" height="350">
+
 &nbsp;
 
 &nbsp;
