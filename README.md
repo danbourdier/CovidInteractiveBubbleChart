@@ -1,4 +1,4 @@
-# Covid-19 Interactive BubbleChart
+![featureGif](https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/images/symbol-header.png) # Covid-19 Interactive BubbleChart
 ---
 
 
