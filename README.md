@@ -54,7 +54,7 @@ API origination:  https://systems.jhu.edu/
 * Client is provided automatic tool-tip box on bottom left as they hover over main elements of page.
 
 
-![featureGif](https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/cosmetic-facelift/src/vids/gifShowcase.gif)
+![featureGif](https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/vids/gifShowcase.gif)
 
 ---
 
