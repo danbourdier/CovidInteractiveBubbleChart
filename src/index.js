@@ -35,7 +35,7 @@
       "Washington": "WA", "West Virginia": "WV", "Wisconsin": "WI", "Wyoming": "WY",
     }
 
-    const COLORS = ["#ee6407", "#585481", "#279af1", "#19297c", "#ffffff"];
+    const COLORS = ["#ee6407", "#585481", "#279af1", "#1C5D99", "#ffffff"];
     
     const svg_width = 920;
     const svg_height = 695;

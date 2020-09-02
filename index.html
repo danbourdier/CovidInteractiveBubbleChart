@@ -38,139 +38,142 @@
   <script src="https://d3js.org/d3.v4.js" charset="utf-8"></script>
 </head>
 <body>
-  <section class="viewbox-container">
-    <aside class="left-buttons">
-      <!-- <button class="button-split">SPLIT</button> -->
-      
-      <span id="aside" class="button-reset">RESET SELECTION</span>
-      <div class="left-text-area">
-        <span id="info-title">STATE: 
-          <div id="Province_State">Select a State</div>
-        </span>
+  <div id="nosferatu">
 
-        <span>RECOVERED:
-          <div id="Recovered">Select a State</div>
-        </span>
-        <span>CONFIRMED:
-          <div id="Confirmed">Select a State</div>
-        </span>
-        <span>DEATHS:
-          <div id="Deaths">Select a State</div>
-        </span>
-        <span>ACTIVE CASES:
-          <div id="Active">Select a State</div>
-        </span>
-        <span>INCIDENT RATE:
-          <div id="Incident_Rate">Select a State</div>
-        </span>
-        <span>PEOPLE TESTED:
-          <div id="People_Tested">Select a State</div>
-        </span>
-        <span>PEOPLE WARDED:
-          <div id="People_Hospitalized">Select a State</div>
-        </span>
-        <span>TREATMENT RATE:
-          <div id="Mortality_Rate">Select a State</div>
-        </span>
-        <span>TESTING RATE:
-          <div id="Testing_Rate">Select a State</div>
-        </span>
-        <span>MORTALITY RATE:
-          <div id="Hospitalization_Rate">Select a State</div>
-        </span>
-      </div>
-
-      <section id="help-box-container">
-        <aside content="Hover Over any Element for a tool tip" id="help-box">Hover Over any Element for a tool tip</aside>
-      </section>
-    </aside>
-
-    
-    <main class="viewbox"></main>
-    
-
-
-    <aside class="right-buttons">
-      <button class="button-reset" id="reset-button-right" type="reset">RESET GRAPH</button>
-      <span id="aside" class="exc123" >SORT BY LARGEST:</span>
-      <div class="radio-button-div">
-        <div class="radio-container">
-          <input type="radio" name="filter" value="Recovered" id="recovered" class="rb">
-          <label class="label" for="recovered">
-            <div class="flag"></div>
-            <span class="txt">RECOVERED</span>
-          </label>
-        </div>
-        <div class="radio-container">
-          <input type="radio" name="filter" value="Confirmed" id="confirmed" class="rb">
-          <label class="label" for="confirmed">
-            <div class="flag"></div>
-            <span class="txt">CONFIRMED</span>
-          </label>
-        </div>
-        <div class="radio-container">
-          <input type="radio" name="filter" value="Deaths" id="deaths" class="rb">
-          <label class="label" for="deaths">
-            <div class="flag"></div>
-            <span class="txt">Deaths</span>
-          </label>
-        </div>
-        <div class="radio-container">
-          <input type="radio" name="filter" value="Active" id="active" class="rb">
-          <label class="label" for="active">
-            <div class="flag"></div>
-            <span class="txt">Active Cases</span>
-          </label>
-        </div>
-        <div class="radio-container">
-          <input type="radio" name="filter" value="Incident_Rate" id="inc-rate"class="rb">
-          <label class="label" for="inc-rate">
-            <div class="flag"></div>
-            <span class="txt">Incident Rate</span>
-          </label>
-        </div>
-        <div class="radio-container">
-          <input type="radio" name="filter" value="People_Tested" id="tested" class="rb">
-          <label class="label" for="tested">
-            <div class="flag"></div>
-            <span class="txt">People Tested</span>
-          </label>
-        </div>
-        <div class="radio-container">
-          <input type="radio" name="filter" value="People_Hospitalized" id="people-deprecated" class="rb">
-          <label class="label" for="people-deprecated">
-            <div class="flag"></div>
-            <span class="txt">People Warded</span>
-          </label>
-        </div>
-        <div class="radio-container">
-          <input type="radio" name="filter" value="Hospitalization_Rate" id="hosp-rate" class="rb">
-          <label class="label" for="hosp-rate">
-            <div class="flag"></div>
-            <span class="txt">Treatment Rate</span>
-          </label>
-        </div>
-        <div class="radio-container">
-          <input type="radio" name="filter" value="Testing_Rate" id="test-rate" class="rb">
-          <label class="label" for="test-rate">
-            <div class="flag"></div>
-            <span class="txt">Testing Rate</span>
-          </label>
-        </div>
-        <div class="radio-container">
-          <input type="radio" name="filter" value="Mortality_Rate" id="mort-rate" class="rb">
-          <label class="label" for="mort-rate">
-            <div class="flag"></div>
-            <span class="txt">Mortality Rate</span>
-          </label>
-        </div>
+    <section class="viewbox-container">
+      <aside class="left-buttons">
+        <!-- <button class="button-split">SPLIT</button> -->
         
-      </div>
-    </aside>
-
-    <script src="./src/index.js"></script>
+        <span id="aside" class="button-reset">RESET SELECTION</span>
+        <div class="left-text-area">
+          <span id="info-title">STATE: 
+            <div id="Province_State">Select a State</div>
+          </span>
   
-  </section>
-
-  </body>
+          <span>RECOVERED:
+            <div id="Recovered">Select a State</div>
+          </span>
+          <span>CONFIRMED:
+            <div id="Confirmed">Select a State</div>
+          </span>
+          <span>DEATHS:
+            <div id="Deaths">Select a State</div>
+          </span>
+          <span>ACTIVE CASES:
+            <div id="Active">Select a State</div>
+          </span>
+          <span>INCIDENT RATE:
+            <div id="Incident_Rate">Select a State</div>
+          </span>
+          <span>PEOPLE TESTED:
+            <div id="People_Tested">Select a State</div>
+          </span>
+          <span>PEOPLE WARDED:
+            <div id="People_Hospitalized">Select a State</div>
+          </span>
+          <span>TREATMENT RATE:
+            <div id="Mortality_Rate">Select a State</div>
+          </span>
+          <span>TESTING RATE:
+            <div id="Testing_Rate">Select a State</div>
+          </span>
+          <span>MORTALITY RATE:
+            <div id="Hospitalization_Rate">Select a State</div>
+          </span>
+        </div>
+  
+        <section id="help-box-container">
+          <aside content="Hover Over any Element for a tool tip" id="help-box">Hover Over any Element for a tool tip</aside>
+        </section>
+      </aside>
+  
+      
+      <main class="viewbox"></main>
+      
+  
+  
+      <aside class="right-buttons">
+        <button class="button-reset" id="reset-button-right" type="reset">RESET GRAPH</button>
+        <span id="aside" class="exc123" >SORT BY LARGEST:</span>
+        <div class="radio-button-div">
+          <div class="radio-container">
+            <input type="radio" name="filter" value="Recovered" id="recovered" class="rb">
+            <label class="label" for="recovered">
+              <div class="flag"></div>
+              <span class="txt">RECOVERED</span>
+            </label>
+          </div>
+          <div class="radio-container">
+            <input type="radio" name="filter" value="Confirmed" id="confirmed" class="rb">
+            <label class="label" for="confirmed">
+              <div class="flag"></div>
+              <span class="txt">CONFIRMED</span>
+            </label>
+          </div>
+          <div class="radio-container">
+            <input type="radio" name="filter" value="Deaths" id="deaths" class="rb">
+            <label class="label" for="deaths">
+              <div class="flag"></div>
+              <span class="txt">Deaths</span>
+            </label>
+          </div>
+          <div class="radio-container">
+            <input type="radio" name="filter" value="Active" id="active" class="rb">
+            <label class="label" for="active">
+              <div class="flag"></div>
+              <span class="txt">Active Cases</span>
+            </label>
+          </div>
+          <div class="radio-container">
+            <input type="radio" name="filter" value="Incident_Rate" id="inc-rate"class="rb">
+            <label class="label" for="inc-rate">
+              <div class="flag"></div>
+              <span class="txt">Incident Rate</span>
+            </label>
+          </div>
+          <div class="radio-container">
+            <input type="radio" name="filter" value="People_Tested" id="tested" class="rb">
+            <label class="label" for="tested">
+              <div class="flag"></div>
+              <span class="txt">People Tested</span>
+            </label>
+          </div>
+          <div class="radio-container">
+            <input type="radio" name="filter" value="People_Hospitalized" id="people-deprecated" class="rb">
+            <label class="label" for="people-deprecated">
+              <div class="flag"></div>
+              <span class="txt">People Warded</span>
+            </label>
+          </div>
+          <div class="radio-container">
+            <input type="radio" name="filter" value="Hospitalization_Rate" id="hosp-rate" class="rb">
+            <label class="label" for="hosp-rate">
+              <div class="flag"></div>
+              <span class="txt">Treatment Rate</span>
+            </label>
+          </div>
+          <div class="radio-container">
+            <input type="radio" name="filter" value="Testing_Rate" id="test-rate" class="rb">
+            <label class="label" for="test-rate">
+              <div class="flag"></div>
+              <span class="txt">Testing Rate</span>
+            </label>
+          </div>
+          <div class="radio-container">
+            <input type="radio" name="filter" value="Mortality_Rate" id="mort-rate" class="rb">
+            <label class="label" for="mort-rate">
+              <div class="flag"></div>
+              <span class="txt">Mortality Rate</span>
+            </label>
+          </div>
+          
+        </div>
+      </aside>
+  
+      <script src="./src/index.js"></script>
+    
+    </section>
+  
+    </body>
+  </div>
 </html>

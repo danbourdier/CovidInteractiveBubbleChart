@@ -5,7 +5,7 @@
   border-radius: 4px;
   margin-left: 20px;
   border-radius: 20px;
-  background: #F7F4E9;
+  color: white;
 }
 
 .radio-container {
@@ -36,6 +36,7 @@
   margin-left: 16px;
   opacity: .6;
   transition: opacity .2s linear, transform .2s ease-out;
+  color: white;
 }
 
 
@@ -62,13 +63,13 @@
 .flag::before {
   box-shadow:
     -4px -2px 4px 0px #d1d9e6,
-    4px 2px 8px 0px #fff;
+    4px 2px 8px 0px grey;
 }
 
 .flag::after {
-  background-color: #F7F4E9;
+  /* background-color: grey; */
   box-shadow:
-    -4px -2px 4px 0px #fff,
+    -4px -2px 4px 0px grey,
     4px 2px 8px 0px #d1d9e6;
   transform: scale3d(1, 1, 1);
   transition: opacity .25s ease-in-out, transform .25s ease-in-out;

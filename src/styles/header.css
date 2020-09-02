@@ -1,17 +1,13 @@
 header {
   border-bottom: lightgrey 0.1px;
-  border-bottom-style: inset;
-  font: bold;
   text-transform: uppercase;
   display: flex;
-  width: 1405px;
   height: 65px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
   background: rgb(238, 100, 7);
   align-items: center;
-  opacity: .7;
   width: 100%;
   border-radius: 5px;
 }
