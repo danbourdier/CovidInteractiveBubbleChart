@@ -13,7 +13,7 @@
 
 ---
 
-### Intro
+### OVERVIEW
 The CIBC is a feature rich data visualization that works on the D3.js library. It enables the user direct, asynchronously updated elements through the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University. Users will be able to choose between available statistics such as recovery rate per country, current and new cases. 
 
 ---
