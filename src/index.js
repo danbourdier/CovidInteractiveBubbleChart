@@ -44,7 +44,6 @@
       .append("svg")
       .attr("height", svg_height)
       .attr("width", svg_width)
-    // ABOVE CODE REFERENCED FROM http://bl.ocks.org/wimdows/1502762
 
     // we use the below #queue when we have multiple files for use
     d3.queue() // allows us to be able to set gaps in time of execution(TOE)

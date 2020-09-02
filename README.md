@@ -38,12 +38,11 @@ Covid Interactive Bubble Chart or (CIBC) is a feature rich data visualization th
 
 ## Featured
 
-#### State Isolated Data
+#### Interface
 
 
-* Client is able to isolate states and view their current information on the left hand side
-* Client is provided automatic tool-tip box on bottom left as they hover over main elements of page.
-
+* Intuitive and brave design that not only engages the Client, but allows for ease of flow through app while providing informational guidance in bottom left.
+* With D3.js, the technology affords our user a seamless experiencing while parsing our targeted data and iteratively redrawing SVG elements to our measurements.
 
 ![Isolating Gif](https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/vids/gifShowcase.gif)
 
@@ -52,12 +51,16 @@ Covid Interactive Bubble Chart or (CIBC) is a feature rich data visualization th
 
 * Client is able to render visually comparable data based on their choice of below options.
 
+
 ![Filter Gif](https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/vids/filter-gif.gif)
+Our code below shows how D3 allows us to accomplish the feature above by binding our data points and re-rendering them with the chosen paramater
+![data_points](https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/images/data_points.png)
 
 
 #### View Node Data
 
 * Client is able view data based on selected a selected state(node) giving an in-depth analysis of each node's bound data.
+
 
 ![Filter Gif](https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/vids/state-gif.gif)
 
