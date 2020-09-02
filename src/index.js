@@ -35,7 +35,7 @@
       "Washington": "WA", "West Virginia": "WV", "Wisconsin": "WI", "Wyoming": "WY",
     }
 
-    const COLORS = ["#ee6407", "#585481", "#279af1", "#19297c", "#ffffff"];
+    const COLORS = ["#ee6407", "#585481", "#279af1", "#1C5D99", "#ffffff"];
     
     const svg_width = 920;
     const svg_height = 695;
@@ -167,9 +167,9 @@
           
         })
         .on("mouseout", () => {
-          helpBox.innerHTML = "Hover Over any Element for a Tool Tip"
+          helpBox.innerHTML = "The Interactive COVID-19 chart renders visualizations based on live data of COVID affected states. Hover over any section for a tip"
           helpBoxContainer
-            .style.boxShadow = "4px 4px 4px 0px #A3B1C6 inset, -4px -4px 4px 0px #ffffff inset"
+            .style.boxShadow = "0px 0px 0px 0px #A3B1C6 inset, 0px 0px 0px 0px #ffffff inset"
         })
 
       d3.select(".left-text-area")
@@ -177,7 +177,7 @@
           helpBox.innerHTML = "Window showing state COVID statistics"
         })
         .on("mouseout", () => {
-          helpBox.innerHTML = "Hover Over any Element for a Tool Tip"
+          helpBox.innerHTML = "The Interactive COVID-19 chart renders visualizations based on live data of COVID affected states. Hover over any section for a tip"
         })
         
       d3.select("#reset-button-right")
@@ -185,7 +185,7 @@
           helpBox.innerHTML = "Click to reset bubble proportions"
         })
         .on("mouseout", () => {
-          helpBox.innerHTML = "Hover Over any Element for a Tool Tip"
+          helpBox.innerHTML = "The Interactive COVID-19 chart renders visualizations based on live data of COVID affected states. Hover over any section for a tip"
         })
 
       d3.select(".radio-button-div")
@@ -193,7 +193,7 @@
           helpBox.innerHTML = "Click any button to size bubbles by selection"
         })
         .on("mouseout", () => {
-          helpBox.innerHTML = "Hover Over any Element for a Tool Tip"
+          helpBox.innerHTML = "The Interactive COVID-19 chart renders visualizations based on live data of COVID affected states. Hover over any section for a tip"
         })
 
       d3.select(".button-reset")
@@ -201,7 +201,7 @@
           helpBox.innerHTML = "Click to reset state data"
         })
         .on("mouseout", () => {
-          helpBox.innerHTML = "Hover Over any Element for a Tool Tip"
+          helpBox.innerHTML = "The Interactive COVID-19 chart renders visualizations based on live data of COVID affected states. Hover over any section for a tip"
         })
 
       d3.select("svg")
@@ -209,7 +209,7 @@
           helpBox.innerHTML = "Click on a state to view it's content on the left-hand side"
         })
         .on("mouseout", () => {
-          helpBox.innerHTML = "Hover Over any Element for a Tool Tip"
+          helpBox.innerHTML = "The Interactive COVID-19 chart renders visualizations based on live data of COVID affected states. Hover over any section for a tip"
         })
       // d3 mouseover events above
 

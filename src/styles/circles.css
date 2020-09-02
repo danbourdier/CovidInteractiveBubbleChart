@@ -7,12 +7,10 @@
 }
 
 .state {
-  stroke: black;
+  stroke: white;
   stroke-width: 2px;
-  stroke-opacity: .4;
-  opacity: .85;
+  stroke-opacity: .3;
   cursor: pointer;
-  /* transition: all 1s ease-in; */
 }
 
 text {

@@ -5,8 +5,7 @@
   border-radius: 4px;
   margin-left: 20px;
   border-radius: 20px;
-  background: #F7F4E9;
-  box-shadow: 4px 4px 5px 0px #A3B1C6, -3px -3px 5px 2px #FFFFFF
+  color: white;
 }
 
 .radio-container {
@@ -21,9 +20,6 @@
 .radio-button-div {
   padding: 48px 36px;
   border-radius: 16px;
-  box-shadow:
-    4px 4px 4px 0px #A3B1C6 inset,
-    -4px -4px 4px 0px #ffffff inset;
 }
 
 .rb {
@@ -40,6 +36,7 @@
   margin-left: 16px;
   opacity: .6;
   transition: opacity .2s linear, transform .2s ease-out;
+  color: white;
 }
 
 
@@ -49,9 +46,6 @@
   border-radius: 50%;
   height: 30px;
   width: 30px;
-  box-shadow:
-    -8px -2px 8px 0px #ffffff,
-    8px 4px 12px 0px #d1d9e6;
   overflow: hidden;
 }
 
@@ -69,13 +63,13 @@
 .flag::before {
   box-shadow:
     -4px -2px 4px 0px #d1d9e6,
-    4px 2px 8px 0px #fff;
+    4px 2px 8px 0px grey;
 }
 
 .flag::after {
-  background-color: #F7F4E9;
+  /* background-color: grey; */
   box-shadow:
-    -4px -2px 4px 0px #fff,
+    -4px -2px 4px 0px grey,
     4px 2px 8px 0px #d1d9e6;
   transform: scale3d(1, 1, 1);
   transition: opacity .25s ease-in-out, transform .25s ease-in-out;

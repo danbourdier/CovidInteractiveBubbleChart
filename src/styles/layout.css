@@ -1,29 +1,45 @@
 .viewbox-container {
       display: flex;
       flex-direction: row;
+      
+
 }
 
 
 /* header */
 
+/* #nosferatu {
+
+} */
 
 body {
-  background-color: #F7F4E9;
+  background-color: black;
+}
+
+body::after {
+  background-image: url(../images/test_tube.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: "";
+  opacity: .15;
 }
 
 svg {
-  background-color: lightgrey;
+  background-color: transparent;
   position: relative;
-  /* left: 280px; */
   margin-left: auto;
   margin-right: auto;
   width:920px;
   height: 695px;
-  /* padding: 2px 4px 2px 8px; */
   border-radius: 40px;
-  background: #F7F4E9;
-  box-shadow: 4px 4px 5px 0px inset #A3B1C6, -3px -3px 5px 3px inset #FFFFFF
 }
+
 .left-buttons {
   margin-left: auto;
   display: flex;
