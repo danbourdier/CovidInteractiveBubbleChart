@@ -53,12 +53,27 @@ Covid Interactive Bubble Chart or (CIBC) is a feature rich data visualization th
 
 
 <img src="https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/vids/filter-gif.gif" width="640" height="420" >
+&nbsp;
 
-
-Our code below shows how D3 allows us to accomplish the feature above by binding our data points and re-rendering them with the chosen paramater.
-<img align="left" src="https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/images/data_points.png" width="400">
+Our code below shows how D3 allows us to accomplish the feature above by binding our data points and re-rendering them with the chosen parameter.
+<img align="right" src="https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/images/data_points.png" width="400">
 By default, we size each datapoint(node) according to recovery cases. 
 But with our passed argument `filter` we can achieve dynamic rendering.  
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 
 #### View Node Data
