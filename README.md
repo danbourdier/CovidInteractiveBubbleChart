@@ -57,7 +57,7 @@ it to a negative value were we able to achieve repulsion contingent of each node
 &nbsp;
 
 &nbsp;
-
+Movement is simulated with our ticked function which changes the positioning of each node and separate label coordinates each *frame* of our function.
 <img align="left" src="https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/images/simulation_movement_calcs.png" width="450" height="350">
 
 &nbsp;
