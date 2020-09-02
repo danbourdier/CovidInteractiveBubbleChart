@@ -30,11 +30,6 @@ Covid Interactive Bubble Chart or (CIBC) is a feature rich data visualization th
 ---
 
 
-## Hosting
-* Github Pages
-
----
-
 
 ## Featured
 
@@ -82,7 +77,11 @@ Movement is simulated with our ticked function which changes the positioning of 
 
 &nbsp;
 
+&nbsp;
 
+&nbsp;
+
+&nbsp;
 
 
 
@@ -132,6 +131,12 @@ But with our passed argument `filter` we can achieve dynamic rendering.
 
 * [API origination](https://systems.jhu.edu/)
 
+
+---
+
+
+## Hosting
+* Github Pages
 
 ---
 
