@@ -94,14 +94,8 @@
       let g = svg.selectAll("g")
         .data(datapoints)
         .enter()
-
       g
         .append("g")
-        // .attr("r", d => (
-        //   scale(d[filter])
-        // ))
-        // .attr("transform", "translate(0,0)")
-
 
       let bubbles = svg.selectAll("g")
         .append("circle")
