@@ -44,5 +44,8 @@
     "> 1%",
     "maintained node versions",
     "not dead"
-  ]
+  ],
+  "dependencies": {
+    "react-icons": "^3.11.0"
+  }
 }

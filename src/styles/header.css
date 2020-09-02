@@ -28,6 +28,7 @@ header div:first-of-type {
   background-position: center;
   background-image: url(../images/angel.png);
   background-size: contain;
+  background-repeat: no-repeat;
   min-width: 30px;
   min-height: 30px;
   max-width: 30px;
@@ -47,13 +48,14 @@ header div:first-of-type {
 #first-header-link {
   background-position: center;
   background-image: url(../images/git.png);
-  background-size: cover;
   min-width: 30px;
   max-width: 30px;
   max-height: 30px;
   position: relative;
   bottom: 2px;
   min-height: 36px;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .header-links {
