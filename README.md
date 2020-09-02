@@ -51,10 +51,14 @@ Covid Interactive Bubble Chart or (CIBC) is a feature rich data visualization th
 Because of D3's integrated force sim, free-flowing nodes were realized. Force sim enables under-the-hood redrawing of nodes based on their x,y position in the 
 contained window. With respect to each node's circumfrence we are able to calculate to the perfect measurement to prevent overlapping and stagnant positioning.
 <img align="right" src="https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/images/applied_force_sim.png" width="450" height="350">
+Force charge is leveraged in the opposite sense where conventionally it would be used to group nodes of a tree data structure together, but instead by setting
+it to a negative value were we able to achieve repulsion contingent of each node's relative measurements.
 
 &nbsp;
 
 &nbsp;
+
+<img align="left" src="https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/images/simulation_movement_calcs.png" width="450" height="350">
 
 &nbsp;
 
