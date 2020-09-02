@@ -54,6 +54,13 @@ Covid Interactive Bubble Chart or (CIBC) is a feature rich data visualization th
 
 ![Filter Gif](https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/vids/filter-gif.gif)
 
+
+#### View Node Data
+
+* Client is able view data based on selected a selected state(node) giving an in-depth analysis of each node's bound data.
+
+![Filter Gif](https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/vids/state-gif.gif)
+
 ---
 
 
