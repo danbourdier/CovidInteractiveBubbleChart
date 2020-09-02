@@ -43,17 +43,6 @@ API origination:  https://systems.jhu.edu/
 
 ---
 
-<!-- ### MVPs
-1. Display SVG element containing bubbles of varying sizes according to their binded data.
-4. Successfully bind automatically updated data through D3.
-2. Have SVG elements exibit a force push/push animation.
-5. Create interactive options that allow user to change visuals for visualizing different statistics per country.
-4. Enable separation of SVG elements to isolate data
-
-### BONUS
-1. Have filters that allow you to see from a global view to state view and vice versa
-2. Clickable bubbles that enable you to isolate an element and see all data associated with the country/state inside -->
-
 
 ### Featured
 
@@ -65,7 +54,7 @@ API origination:  https://systems.jhu.edu/
 * Client is provided automatic tool-tip box on bottom left as they hover over main elements of page.
 
 
-![featureGif](https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/src/vids/gifShowcase.gif)
+![featureGif](https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/cosmetic-facelift/src/vids/gifShowcase.gif)
 
 ---
 
