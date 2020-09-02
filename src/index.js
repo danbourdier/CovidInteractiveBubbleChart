@@ -169,7 +169,7 @@
         .on("mouseout", () => {
           helpBox.innerHTML = "Hover Over any Element for a Tool Tip"
           helpBoxContainer
-            .style.boxShadow = "4px 4px 4px 0px #A3B1C6 inset, -4px -4px 4px 0px #ffffff inset"
+            .style.boxShadow = "0px 0px 0px 0px #A3B1C6 inset, 0px 0px 0px 0px #ffffff inset"
         })
 
       d3.select(".left-text-area")
