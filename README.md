@@ -1,5 +1,8 @@
-<img src="https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/favicon.png" width="100"> COVID-19 Interactive Bubble Chart (CIBC)
+<img src="https://github.com/danbourdier/CovidInteractiveBubbleChart/blob/master/favicon.png" width="100"> COVID-19 is Real Interactive Bubble Chart (CIBC)
 ---
+
+### Disclaimer
+Advisory on why the visualization resizes nodes bigger than the SVG window. This is intentional. The site is designed to be blatantly curt with statistical data that is undeniable. To confirm and fact check aggregated data please feel free to visit https://systems.jhu.edu/ 
 
 
 ### Tech
