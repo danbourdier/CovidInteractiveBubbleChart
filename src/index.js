@@ -15,7 +15,6 @@
   
   let helpBox = document.getElementById("help-box")
   let helpBoxContainer = document.getElementById("help-box-container")
-  // helpBox.innerText = ""
 
 
   function draw(filter) {
@@ -47,7 +46,7 @@
 
     // we use the below #queue when we have multiple files for use
     d3.queue() // allows us to be able to set gaps in time of execution(TOE)
-      .defer(d3.csv, "./src/06-20-2020.csv")
+      .defer(d3.csv, "./src/11-03-2020.csv")
       // defer pretty much allows us halt execution of below until each file with a
       // #defer is loaded.
       .await(vis) // function that executes (below) upon load
@@ -69,7 +68,7 @@
       return -Math.pow(d[filter], 0.78) * forceStrength
     }
     // above code references from D3's sample code for applying charge
-    ////////////////////////
+
     // note; d3's force sim works in ticks, meaning nodes don't just
     // "snap" into place
     let sim = d3.forceSimulation()
@@ -85,11 +84,10 @@
     sim
       .force("collide", d3.forceCollide(d => ( scale(d[filter]) )) )
 
-
-    // let max = d3.max(data, function (d) { return +d.field_goal_attempts; });
     let scale = d3.scaleSqrt().domain([0, 100000]).range([10, 80])
     // the above code takes a max domain of expected values and proportionally sets it
       // to our range value
+
     function vis(error, datapoints) {
       let g = svg.selectAll("g")
         .data(datapoints)
@@ -102,6 +100,12 @@
         .attr("class", "state")
         .attr("r", d => {
           d[filter] = Math.floor(d[filter])
+          let max = d3.max(datapoints, d => +d[filter])
+          let min = d3.min(datapoints, d => +d[filter])
+
+          scale = d3.scaleSqrt().domain([min, max]).range([10, 80])
+
+          
           if (states[d.Province_State]) {
             return scale( d[filter] )
           }
