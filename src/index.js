@@ -64,8 +64,8 @@
     }).strength(forceStrength);
 
     const charge = d => {
-      targetFilter = d[filter];
-      return -Math.pow(d[filter], 0.78) * forceStrength
+      // return -Math.pow(d[filter], 0.78) * forceStrength
+      return -Math.pow(scale(d[filter]), 2 ) * forceStrength
     }
     // above code references from D3's sample code for applying charge
 
@@ -81,10 +81,10 @@
       // would overlap)
       .force('charge', d3.forceManyBody().strength(charge))
     // the above code works better than collide alone!!! REPULSION FTW!!!
-    sim
-      .force("collide", d3.forceCollide(d => ( scale(d[filter]) )) )
+    
 
-    let scale = d3.scaleSqrt().domain([0, 100000]).range([10, 80])
+    // let scale = d3.scaleSqrt().domain([0, 100000]).range([10, 50])
+    let scale
     // the above code takes a max domain of expected values and proportionally sets it
       // to our range value
 
@@ -103,10 +103,13 @@
           let max = d3.max(datapoints, d => +d[filter])
           let min = d3.min(datapoints, d => +d[filter])
 
-          scale = d3.scaleSqrt().domain([min, max]).range([10, 80])
-
+          // scale = d3.scaleSqrt().domain([min, max]).range([10, 80])
+          scale = d3.scaleSqrt().domain([min, max]).range([10, 65])
+          sim
+            .force("collide", d3.forceCollide(d => (scale(d[filter]))))
           
           if (states[d.Province_State]) {
+            // return scale( d[filter] )
             return scale( d[filter] )
           }
         }) 
@@ -295,6 +298,8 @@
 
     }
 
+
+    
   }
 
 draw("Recovered")
