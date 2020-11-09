@@ -1,0 +1,66 @@
+
+/* @media screen and (min-width: 768px) {
+  
+}
+
+@media screen and (min-width: 992px) {
+  
+} */
+/*  */
+@media screen and (max-width: 600px) {
+  header {
+    margin: 0px auto;
+  }
+
+  body {
+    width: 900px;
+  }
+  body::after {
+    width: 900px;
+  }
+
+  #nosferatu {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .viewbox-container {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .left-buttons {
+    flex-direction: row;
+  }
+
+  #aside {
+    max-height: 2em;
+  }
+
+  .left-buttons {
+    position: relative;
+    margin: 0px auto;
+  }
+
+  #reset-button-right {
+    height: 3em;
+  }
+
+  .right-buttons button:first-of-type {
+    margin: 0px auto !important;
+  }
+
+  .radio-button-div {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+  }
+
+  svg {
+    height: 600px;
+  }
+
+  .viewbox {
+    margin: auto;
+  }
+}
