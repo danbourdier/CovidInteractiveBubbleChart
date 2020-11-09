@@ -100,16 +100,14 @@
         .attr("class", "state")
         .attr("r", d => {
           d[filter] = Math.floor(d[filter])
-          let max = d3.max(datapoints, d => +d[filter])
+          let max = d3.max(datapoints, d => +d[filter]) // Both max/min use d3's built in methods to find a specific value in our entire CSV based on the coerced accessor
           let min = d3.min(datapoints, d => +d[filter])
 
-          // scale = d3.scaleSqrt().domain([min, max]).range([10, 80])
-          scale = d3.scaleSqrt().domain([min, max]).range([10, 65])
+          scale = d3.scaleSqrt().domain([min, max]).range([10, 65]) // We set our scale within our instantiation so we have access to manipulate the set's min/max vals
           sim
             .force("collide", d3.forceCollide(d => (scale(d[filter]))))
           
           if (states[d.Province_State]) {
-            // return scale( d[filter] )
             return scale( d[filter] )
           }
         }) 
@@ -131,7 +129,7 @@
             .alphaTarget(0.20)
             .restart()
           d.ISO3 = 'false'
-          // d3.event.stopPropagation()
+          // d3.event.stopPropagation() // conditional event handler
           document.getElementById(`Province_State`)
             .innerText = d.Province_State;
           document.getElementById(`Recovered`)
@@ -156,7 +154,7 @@
             .innerText = Number(d.Hospitalization_Rate).toFixed(2);
         })
 
-      // d3 mouseover events
+      // Our d3 mouseover events below
 
       d3.select(".header-links")
         .on("mouseover", () => {
@@ -228,7 +226,6 @@
         .text(
           d => (states[d.Province_State] ? states[d.Province_State] : "")
           )
-      // ( d.Province_State.length > 1 ? d.Province_State[0] + d.Province_State.split(" ")[d.Province_State.split(" ").length - 1[0]] : "welp" 
 
       let texts = svg.selectAll("text")
 
@@ -254,7 +251,6 @@
           })
           .style("font-size", d => {
             return (
-              // Math.floor(Math.sqrt(d[filter]) / 6 + 24) / 3.14)
                 scale(d[filter] / 10)
             )
             
