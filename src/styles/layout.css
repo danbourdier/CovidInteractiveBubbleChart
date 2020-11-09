@@ -55,6 +55,57 @@ svg {
   body::after {
     width: 900px;
   }
+
+  #nosferatu {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    /* overflow: hidden; */
+  }
+
+  .viewbox-container {
+    flex-wrap: wrap;
+    /* margin: 0px auto; */
+    width: 100%;
+  }
+
+  .left-buttons {
+    flex-direction: row;
+  }
+
+  #aside {
+    max-height: 2em;
+  }
+
+  .left-buttons {
+    position: relative;
+    margin: 0px auto;
+  }
+
+  /* .right-buttons {
+    flex-direction: row !important;
+  } */
+
+  #reset-button-right {
+    height: 3em;
+  }
+
+  .right-buttons button:first-of-type {
+    margin: 0px auto !important;
+  }
+
+  .radio-button-div {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+  }
+
+  svg {
+    height: 600px;
+  }
+
+  .viewbox {
+    margin: auto;
+  }
 }
 
 @media screen and (min-width: 768px) {
