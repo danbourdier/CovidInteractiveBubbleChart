@@ -162,7 +162,6 @@
         .on("mouseover", () => {
           helpBox.innerHTML = "Google 10 non-tax related reasons to hire a Veteran!"
           helpBoxContainer
-            // .style.backgroundColor = "lightgreen"
             .style.boxShadow = "0px 10px 40px 20px lightgreen"
           
         })
@@ -211,7 +210,7 @@
         .on("mouseout", () => {
           helpBox.innerHTML = "The Interactive COVID-19 chart renders visualizations based on live data of COVID affected states. Hover over any section for a tip"
         })
-      // d3 mouseover events above
+      // Our d3 mouseover events above
 
 
 
@@ -255,7 +254,9 @@
           })
           .style("font-size", d => {
             return (
-              Math.floor(Math.sqrt(d[filter]) / 6 + 24) / 3.14)
+              // Math.floor(Math.sqrt(d[filter]) / 6 + 24) / 3.14)
+                scale(d[filter] / 10)
+            )
             
           })
           .style("font-weight", "bold")
