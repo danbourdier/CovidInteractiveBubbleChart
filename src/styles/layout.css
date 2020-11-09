@@ -1,7 +1,7 @@
 .viewbox-container {
       display: flex;
       flex-direction: row;
-      
+      width: 100vw;
 
 }
 
@@ -28,6 +28,7 @@ body::after {
   right: 0;
   content: "";
   opacity: .15;
+  width: 100vw;
 }
 
 svg {
@@ -46,6 +47,28 @@ svg {
   flex-direction: column;
 
 }
+
+@media screen and (max-width: 600px) {
+  body {
+    width: 900px;
+  }
+  body::after {
+    width: 900px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 992px) {
+
+}
+
+@media screen and (min-width: 1200px) {
+
+}
+
 
 
 
