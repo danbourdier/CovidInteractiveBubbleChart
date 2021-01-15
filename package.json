@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/danbourdier/CovidInteractiveBubbleChart.git"
   },
-  "author": "Daniel Bourdier",
+  "author": "Dan Bourdier",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/danbourdier/CovidInteractiveBubbleChart/issues"
